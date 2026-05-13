@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Blossom Automation | Small CRM consultancy in Austin</title>
+  <meta name="description" content="We help small teams turn messy CRMs into systems they actually trust. One owner, every engagement. HubSpot Solutions Partner based in Austin, TX.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Serif+Display:ital@0;1&family=Instrument+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
+
+  <style>
+    /* ─── TOKENS ─────────────────────────────────────────────── */
+    :root {
+      --forest:    #264F3E;
+      --rosemary:  #3D6649;
+      --bloom:     #E5BFB8;
+      --petal:     #F5E8E2;
+      --paper:     #FBF9F2;
+      --linen:     #F0E8DA;
+      --ink:       #1E2A20;
+      --body-clr:  #4A5650;
+      --sage:      #7A8A7E;
+      --rule:      #E5E1D5;
+      --rule-strong: #D5CFBE;
+      --fm-size:   0.8125rem;
+    }
+
+    /* ─── RESET ──────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      color: var(--body-clr);
+      background: var(--paper);
+      -webkit-font-smoothing: antialiased;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: 100%;
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .container--narrow {
+      max-width: 720px;
+    }
+
+    /* ─── TYPOGRAPHY ─────────────────────────────────────────── */
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(38px, 5vw, 56px);
+      font-weight: 400;
+      color: var(--linen);
+      line-height: 1.1;
+    }
+    h1 em {
+      font-family: 'Newsreader', serif;
+      font-style: italic;
+      color: var(--bloom);
+    }
+    h2 {
+      font-family: 'Newsreader', serif;
+      font-size: clamp(26px, 3vw, 34px);
+      font-weight: 500;
+      color: var(--ink);
+      line-height: 1.25;
+    }
+    h2 em { font-style: italic; color: var(--rosemary); }
+    .lede {
+      font-family: 'Newsreader', serif;
+      font-style: italic;
+      font-size: 19px;
+      color: var(--sage);
+      line-height: 1.6;
+    }
+    .eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: var(--fm-size);
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--sage);
+    }
+    .eyebrow--rosemary { color: var(--rosemary); }
+    .eyebrow--bloom    { color: var(--bloom); }
+    .eyebrow--linen    { color: rgba(240,232,218,0.65); }
+
+    /* ─── NAV ────────────────────────────────────────────────── */
+    .nav {
+      background: var(--forest);
+      border-bottom: 1px solid rgba(240,232,218,0.10);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+    .nav__logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 20px;
+      color: var(--linen);
+      letter-spacing: -0.01em;
+    }
+    .nav__logo span {
+      font-family: 'Newsreader', serif;
+      font-style: italic;
+      color: var(--bloom);
+    }
+    .nav__links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav__links a {
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: 14px;
+      color: rgba(240,232,218,0.82);
+      transition: color 200ms ease;
+    }
+    .nav__links a:hover { color: var(--linen); }
+    .nav__links a.active {
+      color: var(--linen);
+      text-decoration: underline;
+      text-decoration-color: var(--bloom);
+      text-underline-offset: 4px;
+      text-decoration-thickness: 2px;
+    }
+    .nav__cta {
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      background: var(--bloom);
+      color: var(--ink);
+      padding: 8px 16px;
+      border-radius: 6px;
+      transition: background 200ms ease;
+    }
+    .nav__cta:hover { background: #DCAFA6; }
+
+    /* ─── §1 HERO ────────────────────────────────────────────── */
+    .hero {
+      background: var(--rosemary);
+      padding: 80px 0 72px;
+    }
+    .hero .eyebrow--linen {
+      display: block;
+      margin-bottom: 20px;
+    }
+    .hero h1 { max-width: 700px; margin-bottom: 24px; }
+    .hero .lede {
+      color: rgba(240,232,218,0.82);
+      max-width: 480px;
+      font-size: 18px;
+    }
+
+    /* ─── SECTION BASE ───────────────────────────────────────── */
+    .section {
+      padding: 72px 0;
+    }
+    .section--paper { background: var(--paper); }
+    .section--linen { background: var(--linen); }
+
+    /* ─── §2 WHAT WE DO ──────────────────────────────────────── */
+    .what-we-do {
+      background: var(--paper);
+      padding: 72px 0;
+    }
+    .what-we-do__header {
+      margin-bottom: 32px;
+    }
+    .what-we-do__header .eyebrow { margin-bottom: 12px; }
+    .what-we-do__prose p {
+      font-size: 16px;
+      color: var(--body-clr);
+      line-height: 1.75;
+      max-width: 640px;
+      margin-bottom: 18px;
+    }
+    .what-we-do__prose p:last-child { margin-bottom: 0; }
+
+    /* ─── §3 WHY WE WORK THIS WAY ───────────────────────────── */
+    .why-we-work {
+      background: var(--linen);
+      padding: 72px 0;
+    }
+    .why-we-work__header {
+      margin-bottom: 36px;
+    }
+    .why-we-work__header .eyebrow { margin-bottom: 12px; }
+    .why-we-work__story {
+      max-width: 640px;
+    }
+    .why-we-work__story p {
+      font-size: 16px;
+      color: var(--body-clr);
+      line-height: 1.8;
+      margin-bottom: 22px;
+    }
+    .why-we-work__story p:last-child { margin-bottom: 0; }
+    .why-we-work__story em {
+      font-family: 'Newsreader', serif;
+      font-style: italic;
+      color: var(--ink);
+    }
+
+    /* ─── §4 WHO RUNS IT ─────────────────────────────────────── */
+    .who-runs-it {
+      background: var(--paper);
+      padding: 72px 0;
+    }
+    .who-runs-it__grid {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 64px;
+      align-items: start;
+    }
+    .who-runs-it__header .eyebrow { margin-bottom: 12px; }
+    .who-runs-it__header h2 { margin-bottom: 24px; }
+    .who-runs-it__prose p {
+      font-size: 16px;
+      color: var(--body-clr);
+      line-height: 1.75;
+      margin-bottom: 18px;
+    }
+    .who-runs-it__prose p:last-child { margin-bottom: 0; }
+
+    /* Headshot frame */
+    .headshot-frame {
+      position: relative;
+    }
+    .headshot-frame__petal {
+      position: absolute;
+      top: -16px;
+      left: -16px;
+      width: 80px;
+      height: 80px;
+      background: var(--petal);
+      border-radius: 50%;
+      z-index: 0;
+    }
+    .headshot-frame__img {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 1px solid var(--rule);
+    }
+    .headshot-frame__caption {
+      font-family: 'Newsreader', serif;
+      font-style: italic;
+      font-size: 14px;
+      color: var(--sage);
+      margin-top: 14px;
+      line-height: 1.5;
+    }
+
+    /* ─── §5 BOTTOM CTA ──────────────────────────────────────── */
+    .bottom-cta {
+      background: var(--paper);
+      padding: 80px 0;
+      border-top: 1px solid var(--rule);
+      text-align: center;
+    }
+    .bottom-cta__headline {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.15;
+      margin-bottom: 32px;
+      max-width: 580px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .bottom-cta__headline em {
+      font-family: 'Newsreader', serif;
+      font-style: italic;
+      color: var(--rosemary);
+    }
+    .btn--primary {
+      display: inline-block;
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      background: var(--bloom);
+      color: var(--ink);
+      padding: 14px 28px;
+      border-radius: 6px;
+      border: 1px solid transparent;
+      transition: background 200ms ease;
+    }
+    .btn--primary:hover { background: #DCAFA6; }
+
+    /* ─── FOOTER ─────────────────────────────────────────────── */
+    .footer {
+      background: var(--forest);
+      border-top: 1px solid rgba(240,232,218,0.10);
+      padding: 48px 0 32px;
+    }
+    .footer__grid {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr 1fr;
+      gap: 40px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(240,232,218,0.10);
+      margin-bottom: 28px;
+    }
+    .footer__wordmark {
+      font-family: 'DM Serif Display', serif;
+      font-size: 18px;
+      color: var(--linen);
+      margin-bottom: 10px;
+    }
+    .footer__tagline {
+      font-family: 'Newsreader', serif;
+      font-style: italic;
+      font-size: 14px;
+      color: rgba(240,232,218,0.65);
+    }
+    .footer__col-head {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.20em;
+      text-transform: uppercase;
+      color: rgba(240,232,218,0.40);
+      margin-bottom: 14px;
+    }
+    .footer__links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer__links a {
+      font-size: 13px;
+      color: rgba(240,232,218,0.65);
+      transition: color 200ms ease;
+    }
+    .footer__links a:hover { color: var(--linen); }
+    .footer__bottom { display: flex; justify-content: space-between; align-items: center; }
+    .footer__copy { font-size: 12px; color: rgba(240,232,218,0.40); font-family: 'DM Mono', monospace; }
+
+    /* ─── RESPONSIVE ─────────────────────────────────────────── */
+    @media (max-width: 899px) {
+      .who-runs-it__grid { grid-template-columns: 1fr; gap: 40px; }
+      .headshot-frame { max-width: 300px; }
+      .footer__grid { grid-template-columns: 1fr 1fr; gap: 28px; }
+    }
+    @media (max-width: 599px) {
+      .nav__links { display: none; }
+      .hero { padding: 56px 0 52px; }
+      .section, .what-we-do, .why-we-work, .who-runs-it { padding: 52px 0; }
+      .bottom-cta { padding: 56px 0; }
+      .footer__grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ NAV ══════════════════════════════════════════════════ -->
+  <nav class="nav">
+    <div class="container">
+      <div class="nav__inner">
+        <a href="/" class="nav__logo">Blossom <span>Automation</span></a>
+        <ul class="nav__links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/services">Services</a></li>
+          <li><a href="/how-it-works">How it works</a></li>
+          <li><a href="/about" class="active">About</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+        <a href="/contact" class="nav__cta">Book a call</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══ §1 · HERO ═════════════════════════════════════════════ -->
+  <header class="hero">
+    <div class="container">
+      <p class="eyebrow eyebrow--linen">About</p>
+      <!-- LOCKED CONTENT — NEEDS REVIEW BEFORE LAUNCH -->
+      <h1>We help small teams turn messy CRMs<br>into systems they <em>actually trust.</em></h1>
+      <p class="lede">A small consultancy. One owner. Honest pricing.</p>
+    </div>
+  </header>
+
+  <!-- ═══ §2 · WHAT WE DO ═══════════════════════════════════════ -->
+  <section class="what-we-do">
+    <div class="container">
+      <div class="what-we-do__header">
+        <p class="eyebrow eyebrow--rosemary">The practice</p>
+        <!-- LOCKED CONTENT — NEEDS REVIEW BEFORE LAUNCH -->
+        <h2 style="margin-top:12px;">We do CRM support. <em>That's the whole thing.</em></h2>
+      </div>
+      <div class="what-we-do__prose">
+        <!-- LOCKED CONTENT — NEEDS REVIEW BEFORE LAUNCH -->
+        <p>Most organizations that reach out have the same problem in different clothes. Data they don't trust. Workflows that nobody follows. A CRM that technically works but practically doesn't. We help them find what's actually broken, fix it in the right order, and build something their team will use without needing to become technical experts.</p>
+        <p>We work with HubSpot primarily, and with Salesforce, Pipedrive, and Zoho depending on where the client already is. We don't migrate people off platforms that are working. We make the platform they have work the way it was supposed to.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ §3 · WHY WE WORK THIS WAY ════════════════════════════ -->
+  <section class="why-we-work">
+    <div class="container">
+      <div class="why-we-work__header">
+        <p class="eyebrow eyebrow--rosemary">How we got here</p>
+        <!-- LOCKED CONTENT — NEEDS REVIEW BEFORE LAUNCH -->
+        <h2 style="margin-top:12px;">We didn't come to CRM through a straight line. <em>That's the reason we work the way we do.</em></h2>
+      </div>
+
+      <!-- LOCKED CONTENT — VERBATIM — DO NOT REWRITE -->
+      <div class="why-we-work__story">
+        <p>Before CRMs, we managed a neighborhood bar in San Antonio called Tap Exchange. We were 24. Our stepfather owned it. We ran the floor.</p>
+        <p>One of our regulars was named David. Double whisky, neat. He came in most weeks. He was a widower, and he didn't talk much about why he was there, but we knew.</p>
+        <p>On the nights it ran well, someone behind the bar would have his drink ready before he sat down. On the nights it didn't, he'd order it like a stranger.</p>
+        <p>The bar wasn't really in the whisky business. It was in the business of remembering people. The whole job, on any given shift, was making sure the next person on the schedule <em>knew what we knew.</em></p>
+        <p>We didn't have a word for that yet.</p>
+        <p>Years later, working in CRM, the same shape kept showing up. Different rooms. Same job. Make sure the next person on shift knows what the team already knows.</p>
+      </div>
+      <!-- END LOCKED CONTENT -->
+
+    </div>
+  </section>
+
+  <!-- ═══ §4 · WHO RUNS IT ══════════════════════════════════════ -->
+  <section class="who-runs-it">
+    <div class="container">
+      <div class="who-runs-it__grid">
+
+        <!-- Left: copy -->
+        <div>
+          <div class="who-runs-it__header">
+            <p class="eyebrow eyebrow--rosemary">The team</p>
+            <!-- LOCKED CONTENT — NEEDS REVIEW BEFORE LAUNCH -->
+            <h2 style="margin-top:12px;">One owner. Every engagement.</h2>
+          </div>
+          <div class="who-runs-it__prose">
+            <!-- LOCKED CONTENT — NEEDS REVIEW BEFORE LAUNCH -->
+            <p>Oscar Gonzalez is the founder and lead consultant on every Blossom engagement. We've been HubSpot certified since 2016 and became a HubSpot Solutions Partner in 2024. We're based in Austin, Texas.</p>
+            <p>We work with small teams. Five to fifty people, already on HubSpot or Salesforce or Pipedrive, tired of patching the same problems. That's the situation we know how to help with.</p>
+          </div>
+        </div>
+
+        <!-- Right: headshot -->
+        <div class="headshot-frame">
+          <div class="headshot-frame__petal"></div>
+          <img
+            class="headshot-frame__img"
+            src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAgAAAQABAAD/wAARCAOcA5wDACIAAREBAhEB/9sAQwAIBgYHBgUIBwcHCQkICgwUDQwLCwwZEhMPFB0aHx4dGhwcICQuJyAiLCMcHCg3KSwwMTQ0NB8nOT04MjwuMzQy/9sAQwEJCQkMCwwYDQ0YMiEcITIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIy/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMAAAERAhEAPwD5/ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACvQPgl/yV7Qv+3j/0nkrz+vQPgl/yV7Qv+3j/ANJ5KAPr+iiigD4AooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiilABIBOAepxmgBKKVlKsVPUHFJQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAV6B8Ev+SvaF/wBvH/pPJXn9egfBL/kr2hf9vH/ANJ5KAPr+iiigD4AooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACvQPgl/yV7Qv+3j/wBJ5K8/r0D4Jf8AJXtC/wC3j/0nkoA+v6KKKAPgCiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAK9A+CX/JXtC/7eP8A0nkrz+vQPgl/yV7Qv+3j/wBJ5KAPr+iiigD4AooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACvQPgl/yV7Qv+3j/ANJ5K8/r0D4Jf8le0L/t4/8ASeSgD6/ooooA+AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAK9A+CX/JXtC/7eP/AEnkrz+vQPgl/wAle0L/ALeP/SeSgD6/ooooA+AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAK9A+CX/JXtC/7eP8A0nkrz+vQPgl/yV7Qv+3j/wBJ5KAPr+iiigD4AooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACvQPgl/yV7Qv+3j/ANJ5K8/r0D4Jf8le0L/t4/8ASeSgD6/ooooA+AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAK9A+CX/JXtC/7eP8A0nkrz+vQPgl/yV7Qv+3j/wBJ5KAPr+iiigD4AooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACvQPgl/yV7Qv+3j/ANJ5K8/r0D4Jf8le0L/t4/8ASeSgD6/ooooA+AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAK9A+CX/JXtC/7eP8A0nkrz+vQPgl/yV7Qv+3j/wBJ5KAPr+iiigD4AooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACvQPgl/yV7Qv+3j/ANJ5K8/r0D4Jf8le0L/t4/8ASeSgD6/ooooA+AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAK9A+CX/JXtC/7eP8A0nkrz+vQPgl/yV7Qv+3j/wBJ5KAPr+iiigD4AooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACvQPgl/yV7Qv+3j/ANJ5K8/r0D4Jf8le0L/t4/8ASeSgD6/ooooA+AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAK9A+CX/JXtC/7eP8A0nkrz+vQPgl/yV7Qv+3j/wDSeS"
+            alt="Oscar Gonzalez, founder of Blossom Automation"
+          >
+          <p class="headshot-frame__caption">Oscar Gonzalez. Lead consultant on every Blossom engagement.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ §5 · BOTTOM CTA ═══════════════════════════════════════ -->
+  <section class="bottom-cta">
+    <div class="container">
+      <!-- LOCKED CONTENT — NEEDS REVIEW BEFORE LAUNCH -->
+      <p class="bottom-cta__headline">Tell us where your CRM hurts.<br><em>We'll tell you what we'd do.</em></p>
+      <a href="/contact" class="btn--primary">Start a conversation</a>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ════════════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__wordmark">Blossom Automation</div>
+          <div class="footer__tagline">Good systems grow when tended.</div>
+        </div>
+        <div>
+          <div class="footer__col-head">Services</div>
+          <ul class="footer__links">
+            <li><a href="/services#foundation">Foundation Sprint</a></li>
+            <li><a href="/services#growth">Growth Retainer</a></li>
+            <li><a href="/services#embedded">Embedded Partner</a></li>
+            <li><a href="/for-agencies">For agencies</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer__col-head">Company</div>
+          <ul class="footer__links">
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/privacy">Privacy</a></li>
+            <li><a href="/terms">Terms</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer__col-head">Tools</div>
+          <ul class="footer__links">
+            <li><a href="https://rootcheck.blossomautomation.com">RootCheck</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span class="footer__copy">© 2026 Blossom Automation</span>
+        <span class="footer__copy">oscar@blossomautomation.com</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JSON-LD: Organization schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Blossom Automation",
+    "url": "https://blossomautomation.com",
+    "email": "oscar@blossomautomation.com",
+    "founder": {
+      "@type": "Person",
+      "name": "Oscar Gonzalez"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Austin",
+      "addressRegion": "TX",
+      "addressCountry": "US"
+    },
+    "sameAs": [
+      "https://www.linkedin.com/in/oscargonzalez"
+    ]
+  }
+  </script>
+
+</body>
+</html>

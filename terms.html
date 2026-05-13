@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms of Service | Blossom Automation</title>
+  <meta name="description" content="Terms of Service for Blossom Automation. How we work together and what to expect.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --forest:    #264F3E;
+      --rosemary:  #3D6649;
+      --paper:     #FBF9F2;
+      --linen:     #F0E8DA;
+      --bloom:     #E5BFB8;
+      --petal:     #F5E8E2;
+      --ink:       #1E2A20;
+      --body:      #4A5650;
+      --sage:      #7A8A7E;
+      --rule:      #E5E1D5;
+      --rule-s:    #D5CFBE;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--paper);
+      color: var(--body);
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      background: var(--forest);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(240,232,218,0.10);
+    }
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 32px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-wordmark {
+      font-family: 'DM Serif Display', serif;
+      font-size: 18px;
+      color: var(--linen);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(240,232,218,0.72);
+      text-decoration: none;
+      transition: color 200ms ease;
+    }
+    .nav-links a:hover { color: var(--linen); }
+    @media (max-width: 599px) {
+      .nav-links { display: none; }
+    }
+
+    /* ── PAGE HEADER ── */
+    .page-header {
+      background: var(--paper);
+      padding: 64px 32px 48px;
+      border-bottom: 1px solid var(--rule);
+    }
+    .page-header-inner {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .page-eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 16px;
+    }
+    .page-header h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(32px, 4vw, 44px);
+      color: var(--ink);
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+    .page-lede {
+      font-family: 'Newsreader', serif;
+      font-style: italic;
+      font-size: 19px;
+      line-height: 1.55;
+      color: var(--sage);
+    }
+    .page-meta {
+      margin-top: 20px;
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--sage);
+    }
+
+    /* ── PROSE BODY ── */
+    .prose-wrapper {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 56px 32px 80px;
+    }
+
+    .prose-wrapper h2 {
+      font-family: 'Newsreader', serif;
+      font-size: clamp(22px, 2.8vw, 28px);
+      font-weight: 500;
+      color: var(--ink);
+      margin-top: 52px;
+      margin-bottom: 14px;
+      line-height: 1.3;
+    }
+    .prose-wrapper h2:first-child { margin-top: 0; }
+
+    .prose-wrapper h3 {
+      font-family: 'Newsreader', serif;
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--ink);
+      margin-top: 32px;
+      margin-bottom: 10px;
+      line-height: 1.35;
+    }
+
+    .prose-wrapper p {
+      margin-bottom: 20px;
+      color: var(--body);
+    }
+
+    .prose-wrapper ul {
+      margin-bottom: 20px;
+      padding-left: 0;
+      list-style: none;
+    }
+    .prose-wrapper ul li {
+      position: relative;
+      padding: 10px 0 10px 22px;
+      border-bottom: 1px solid var(--rule);
+      color: var(--body);
+      font-size: 15px;
+    }
+    .prose-wrapper ul li:last-child { border-bottom: none; }
+    .prose-wrapper ul li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--rosemary);
+      font-weight: 600;
+    }
+
+    .prose-wrapper a {
+      color: var(--rosemary);
+      font-weight: 500;
+      text-decoration: underline;
+      text-decoration-color: var(--bloom);
+      text-decoration-thickness: 2px;
+      text-underline-offset: 3px;
+      transition: text-decoration-color 200ms ease;
+    }
+    .prose-wrapper a:hover {
+      text-decoration-color: var(--rosemary);
+    }
+
+    .prose-divider {
+      border: none;
+      border-top: 1px solid var(--rule);
+      margin: 48px 0;
+    }
+
+    .contact-card {
+      background: var(--linen);
+      border-radius: 12px;
+      padding: 28px 32px;
+      margin-top: 40px;
+    }
+    .contact-card .eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.20em;
+      text-transform: uppercase;
+      color: var(--rosemary);
+      margin-bottom: 10px;
+    }
+    .contact-card p { margin-bottom: 0; font-size: 15px; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--forest);
+      padding: 56px 32px 40px;
+    }
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(240,232,218,0.12);
+    }
+    .footer-brand .wordmark {
+      font-family: 'DM Serif Display', serif;
+      font-size: 20px;
+      color: var(--linen);
+      display: block;
+      margin-bottom: 8px;
+    }
+    .footer-brand .tagline {
+      font-family: 'Newsreader', serif;
+      font-style: italic;
+      font-size: 14px;
+      color: rgba(240,232,218,0.65);
+    }
+    .footer-nav-col h4 {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.20em;
+      text-transform: uppercase;
+      color: var(--bloom);
+      margin-bottom: 14px;
+    }
+    .footer-nav-col ul { list-style: none; }
+    .footer-nav-col ul li { margin-bottom: 8px; }
+    .footer-nav-col ul li a {
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: 13px;
+      color: rgba(240,232,218,0.72);
+      text-decoration: none;
+      transition: color 200ms ease;
+    }
+    .footer-nav-col ul li a:hover { color: var(--linen); }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer-bottom p {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(240,232,218,0.40);
+    }
+
+    @media (max-width: 599px) {
+      .nav-inner, .page-header, .prose-wrapper { padding-left: 20px; padding-right: 20px; }
+      footer { padding-left: 20px; padding-right: 20px; }
+      .footer-top { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="/" class="nav-wordmark">Blossom Automation</a>
+      <ul class="nav-links">
+        <li><a href="/services">Services</a></li>
+        <li><a href="/how-it-works">How it works</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <header class="page-header">
+    <div class="page-header-inner">
+      <p class="page-eyebrow">Legal</p>
+      <h1>Terms of Service</h1>
+      <p class="page-lede">The basics of how we work together, and what you can expect when you hire us or use this site.</p>
+      <p class="page-meta">Last updated: May 2026</p>
+    </div>
+  </header>
+
+  <!-- PROSE -->
+  <main>
+    <div class="prose-wrapper">
+
+      <h2>Who this covers</h2>
+      <p>These terms apply to your use of this website (blossomautomation.com) and any consulting services you engage Blossom Automation to provide. "We," "us," and "our" refer to Blossom Automation LLC, based in Austin, Texas. "You" refers to the individual or organization using this site or engaging our services.</p>
+
+      <h2>Using this website</h2>
+      <p>You're welcome to read, share, and link to anything on this site. A few things we ask:</p>
+      <ul>
+        <li>Don't reproduce our content wholesale without attribution</li>
+        <li>Don't use this site in a way that interferes with other users or our systems</li>
+        <li>Don't attempt to access areas of the site or connected services you're not authorized to access</li>
+      </ul>
+      <p>We reserve the right to change or remove content on this site at any time.</p>
+
+      <h2>RootCheck</h2>
+      <p>RootCheck is a free audit tool that connects to your HubSpot portal via OAuth. By connecting your HubSpot account, you authorize RootCheck to read your portal data for the purpose of generating an audit score and report. We do not make changes to your HubSpot data. You can revoke access at any time through your HubSpot account settings.</p>
+      <p>RootCheck is provided as-is. We make reasonable efforts to keep it accurate and running, but we don't guarantee that audit results are complete or error-free. Don't use RootCheck output as a substitute for a full professional engagement.</p>
+
+      <h2>Consulting services</h2>
+      <p>When you hire Blossom Automation for consulting work, the specific terms of the engagement (scope, timeline, pricing, deliverables) are defined in your signed agreement or proposal. These general terms apply alongside that agreement, not instead of it.</p>
+
+      <h3>What we do</h3>
+      <p>We help organizations implement, clean up, and manage CRM systems. Our work is practical and hands-on. We are not a legal, financial, or compliance advisory firm. Anything we recommend is based on our experience in operations and CRM, not professional licensure in regulated fields.</p>
+
+      <h3>What we don't do</h3>
+      <p>We don't guarantee specific business outcomes. CRM success depends on many factors, including how your team adopts the system, decisions made outside our engagement, and things that change after we finish our work. We can build something that works. We can't control whether it gets used.</p>
+
+      <h3>Your responsibilities</h3>
+      <p>A consulting engagement works when both sides show up. We ask that you:</p>
+      <ul>
+        <li>Provide accurate information about your systems, goals, and team</li>
+        <li>Give us reasonable access to the tools and data we need to do the work</li>
+        <li>Respond to questions and decisions within the timelines we agree on</li>
+        <li>Keep your HubSpot (or other platform) credentials secure</li>
+      </ul>
+      <p>We'll tell you when something outside our agreed scope comes up, and we'll discuss how to handle it before proceeding.</p>
+
+      <h3>Confidentiality</h3>
+      <p>Anything you share with us about your business, your customers, or your systems is treated as confidential. We don't share client information with third parties and we don't use client work as case study material without your permission.</p>
+      <p>We may reference working with you in general terms (for example, noting your industry or the type of work we did) without disclosing specific details. If you'd like to be excluded from any such mentions, tell us and we'll honor that.</p>
+
+      <h3>Invoicing and payment</h3>
+      <p>Payment terms are defined in your engagement agreement. For hourly work, invoices are issued regularly and due within the timeframe specified. For project-based work, payment schedules are agreed before the work begins.</p>
+      <p>If a payment is late, we'll reach out directly. We don't quietly slow down the work; we'd rather talk about it.</p>
+
+      <hr class="prose-divider">
+
+      <h2>Limitation of liability</h2>
+      <p>Blossom Automation's liability for any claim arising from your use of this site or our services is limited to the amount you've paid us in the 90 days preceding the claim. We are not liable for indirect, incidental, or consequential damages.</p>
+      <p>We work carefully and we take our commitments seriously. But no consultant can be liable for every downstream effect of CRM work on a business. That framing protects both of us.</p>
+
+      <h2>Governing law</h2>
+      <p>These terms are governed by the laws of the State of Texas. Any disputes will be handled in Travis County, Texas.</p>
+
+      <h2>Changes to these terms</h2>
+      <p>We may update these terms occasionally. Material changes will be noted and dated. Continued use of this site or our services after changes are posted means you accept the updated terms.</p>
+
+      <hr class="prose-divider">
+
+      <div class="contact-card">
+        <p class="eyebrow">Questions</p>
+        <p>If something here is confusing or you want to talk through the terms of a specific engagement, email us at <a href="mailto:oscar@blossomautomation.com">oscar@blossomautomation.com</a>. We prefer plain-language conversations over legal back-and-forth.</p>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <span class="wordmark">Blossom Automation</span>
+          <span class="tagline">Good systems grow when tended.</span>
+        </div>
+        <div class="footer-nav-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="/services#foundation-sprint">Foundation Sprint</a></li>
+            <li><a href="/services#growth-retainer">Growth Retainer</a></li>
+            <li><a href="/services#embedded-partner">Embedded Partner</a></li>
+            <li><a href="/for-agencies">For agencies</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/privacy">Privacy</a></li>
+            <li><a href="/terms">Terms</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-col">
+          <h4>Tools</h4>
+          <ul>
+            <li><a href="https://rootcheck.blossomautomation.com" target="_blank" rel="noopener">RootCheck</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-col">
+          <h4>Stay in touch</h4>
+          <ul>
+            <li><a href="https://linkedin.com/in/oscargonzalez" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href="mailto:oscar@blossomautomation.com">Email</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Blossom Automation LLC. Austin, TX.</p>
+        <p>CRM consulting for teams that need it to work.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

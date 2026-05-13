@@ -1,0 +1,1137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services | Blossom Automation</title>
+  <meta name="description" content="Three ways to work with Blossom Automation: Foundation Sprint, Growth Retainer, and Embedded Partner. Clear scope, clear pricing, no surprises.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Serif+Display:ital@0;1&family=Instrument+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
+
+  <style>
+    /* ─── TOKENS ─────────────────────────────────────────────── */
+    :root {
+      --forest:    #264F3E;
+      --rosemary:  #3D6649;
+      --bloom:     #E5BFB8;
+      --petal:     #F5E8E2;
+      --paper:     #FBF9F2;
+      --linen:     #F0E8DA;
+      --ink:       #1E2A20;
+      --body-clr:  #4A5650;
+      --sage:      #7A8A7E;
+      --rule:      #E5E1D5;
+      --rule-strong: #D5CFBE;
+      --fm-size:   0.8125rem; /* DM Mono min 13px site-wide */
+    }
+
+    /* ─── RESET ──────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      color: var(--body-clr);
+      background: var(--paper);
+      -webkit-font-smoothing: antialiased;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ─── LAYOUT ─────────────────────────────────────────────── */
+    .container {
+      width: 100%;
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ─── TYPOGRAPHY ─────────────────────────────────────────── */
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(40px, 5.5vw, 60px);
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.1;
+    }
+    h1 em {
+      font-family: 'Newsreader', serif;
+      font-style: italic;
+      font-optical-sizing: auto;
+      --opsz: 60;
+      color: var(--rosemary);
+    }
+    h2 {
+      font-family: 'Newsreader', serif;
+      font-size: clamp(28px, 3.4vw, 36px);
+      font-weight: 500;
+      font-style: normal;
+      color: var(--ink);
+      line-height: 1.2;
+    }
+    h2 em {
+      font-style: italic;
+      color: var(--rosemary);
+    }
+    h3 {
+      font-family: 'Newsreader', serif;
+      font-size: 24px;
+      font-weight: 500;
+      font-style: normal;
+      color: var(--ink);
+      line-height: 1.3;
+    }
+    .lede {
+      font-family: 'Newsreader', serif;
+      font-style: italic;
+      font-size: 19px;
+      color: var(--sage);
+      line-height: 1.6;
+    }
+    .eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: var(--fm-size);
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--sage);
+    }
+    .eyebrow--rosemary { color: var(--rosemary); }
+    .eyebrow--bloom    { color: var(--bloom); }
+    strong { color: var(--ink); font-weight: 600; }
+
+    /* ─── NAV ────────────────────────────────────────────────── */
+    .nav {
+      background: var(--forest);
+      border-bottom: 1px solid rgba(240,232,218,0.10);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+    .nav__logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 20px;
+      color: var(--linen);
+      letter-spacing: -0.01em;
+    }
+    .nav__logo span {
+      font-family: 'Newsreader', serif;
+      font-style: italic;
+      color: var(--bloom);
+    }
+    .nav__links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav__links a {
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: 14px;
+      color: rgba(240,232,218,0.82);
+      transition: color 200ms ease;
+    }
+    .nav__links a:hover,
+    .nav__links a.active {
+      color: var(--linen);
+    }
+    .nav__links a.active {
+      text-decoration: underline;
+      text-decoration-color: var(--bloom);
+      text-underline-offset: 4px;
+      text-decoration-thickness: 2px;
+    }
+    .nav__cta {
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      background: var(--bloom);
+      color: var(--ink);
+      padding: 8px 16px;
+      border-radius: 6px;
+      transition: background 200ms ease;
+    }
+    .nav__cta:hover { background: #DCAFA6; }
+
+    /* ─── BUTTONS ────────────────────────────────────────────── */
+    .btn {
+      display: inline-block;
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      padding: 12px 22px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 200ms ease, border-color 200ms ease, color 200ms ease;
+      border: 1px solid transparent;
+    }
+    .btn--primary {
+      background: var(--bloom);
+      color: var(--ink);
+    }
+    .btn--primary:hover { background: #DCAFA6; }
+    .btn--secondary {
+      background: transparent;
+      border-color: var(--rosemary);
+      color: var(--rosemary);
+    }
+    .btn--secondary:hover { background: var(--petal); }
+    .btn--ghost {
+      background: transparent;
+      border-color: rgba(240,232,218,0.40);
+      color: var(--linen);
+    }
+    .btn--ghost:hover {
+      background: rgba(240,232,218,0.08);
+      border-color: rgba(240,232,218,0.65);
+    }
+
+    /* ─── FEATURE LIST ───────────────────────────────────────── */
+    .feature-list {
+      list-style: none;
+      margin-top: 20px;
+    }
+    .feature-list li {
+      position: relative;
+      font-size: 15px;
+      color: var(--body-clr);
+      padding: 14px 0 14px 26px;
+      border-bottom: 1px solid var(--rule);
+    }
+    .feature-list li:last-child { border-bottom: none; }
+    .feature-list li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--rosemary);
+      font-weight: 600;
+    }
+
+    /* ─── PAGE HEADER ────────────────────────────────────────── */
+    .page-header {
+      background: var(--linen);
+      padding: 72px 0 64px;
+    }
+    .page-header .eyebrow { margin-bottom: 16px; }
+    .page-header h1 { max-width: 680px; margin-bottom: 20px; }
+    .page-header .lede { max-width: 560px; }
+
+    /* ─── TIER ANCHOR NAV ────────────────────────────────────── */
+    .tier-nav {
+      background: var(--paper);
+      border-bottom: 1px solid var(--rule);
+      position: sticky;
+      top: 60px;
+      z-index: 90;
+    }
+    .tier-nav__inner {
+      display: flex;
+      gap: 0;
+      padding: 0;
+    }
+    .tier-nav__link {
+      font-family: 'DM Mono', monospace;
+      font-size: var(--fm-size);
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--body-clr);
+      padding: 18px 28px;
+      border-bottom: 2px solid transparent;
+      transition: color 200ms ease, border-color 200ms ease;
+    }
+    .tier-nav__link:hover { color: var(--rosemary); }
+    .tier-nav__link.active {
+      color: var(--rosemary);
+      border-bottom-color: var(--rosemary);
+    }
+
+    /* ─── TIER SECTION ───────────────────────────────────────── */
+    .tier-section {
+      padding: 80px 0;
+    }
+    .tier-section--linen { background: var(--linen); }
+    .tier-section--paper { background: var(--paper); }
+
+    /* Tier headings: larger and heavier than standard H2 */
+    .tier-section h2 {
+      font-size: clamp(34px, 4.2vw, 48px);
+      font-weight: 600;
+    }
+
+    /* Tier ledes: darken from Sage to Body for readability */
+    .tier-section .lede {
+      color: var(--body-clr);
+    }
+
+    .tier-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .tier-label {
+      font-family: 'DM Mono', monospace;
+      font-size: var(--fm-size);
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--rosemary);
+      margin-bottom: 12px;
+    }
+
+    .tier-price {
+      margin: 24px 0 8px;
+    }
+    .tier-price__amount {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(36px, 4vw, 48px);
+      color: var(--ink);
+      line-height: 1;
+    }
+    .tier-price__unit {
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: 15px;
+      color: var(--sage);
+      margin-top: 4px;
+    }
+
+    .tier-note {
+      font-family: 'Newsreader', serif;
+      font-style: italic;
+      font-size: 15px;
+      color: var(--sage);
+      margin-bottom: 28px;
+    }
+
+    .tier-card {
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      border-radius: 14px;
+      padding: 32px;
+    }
+    .tier-card__header {
+      font-family: 'DM Mono', monospace;
+      font-size: var(--fm-size);
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--rosemary);
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--rule);
+      margin-bottom: 20px;
+    }
+    .tier-card__row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--rule);
+      font-size: 14px;
+    }
+    .tier-card__row:last-child { border-bottom: none; }
+    .tier-card__key {
+      color: var(--sage);
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    .tier-card__val {
+      font-family: 'Newsreader', serif;
+      font-style: italic;
+      font-size: 15px;
+      color: var(--ink);
+      text-align: right;
+    }
+
+    /* ─── NOT FOR ────────────────────────────────────────────── */
+    .not-for {
+      background: var(--petal);
+      border-left: 3px solid var(--bloom);
+      border-radius: 0 8px 8px 0;
+      padding: 18px 20px;
+      margin-top: 28px;
+    }
+    .not-for__label {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 8px;
+    }
+    .not-for__text {
+      font-size: 14px;
+      color: var(--ink);
+    }
+
+    /* ─── COMPARISON TABLE ───────────────────────────────────── */
+    .comparison {
+      background: var(--linen);
+      padding: 80px 0;
+    }
+    .comparison__header {
+      margin-bottom: 40px;
+    }
+    .comparison__header .eyebrow { margin-bottom: 12px; }
+
+    .comp-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+    .comp-table th {
+      font-family: 'DM Mono', monospace;
+      font-size: var(--fm-size);
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--rosemary);
+      padding: 18px 20px;
+      text-align: left;
+      background: var(--paper);
+      border-bottom: 1px solid var(--rule);
+    }
+    .comp-table th:first-child { color: var(--sage); }
+    .comp-table td {
+      font-size: 14px;
+      color: var(--body-clr);
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--rule);
+      vertical-align: top;
+    }
+    .comp-table tr:last-child td { border-bottom: none; }
+    .comp-table td:first-child {
+      font-family: 'Instrument Sans', sans-serif;
+      font-weight: 600;
+      color: var(--ink);
+      font-size: 14px;
+    }
+    .comp-table td .check {
+      color: var(--rosemary);
+      font-weight: 600;
+    }
+    .comp-table td .dash {
+      color: var(--rule-strong);
+    }
+    .comp-table tr:hover td { background: rgba(229,191,184,0.06); }
+
+    /* ─── FAQ ────────────────────────────────────────────────── */
+    .faq {
+      background: var(--paper);
+      padding: 80px 0;
+    }
+    .faq__header { margin-bottom: 40px; }
+    .faq__header .eyebrow { margin-bottom: 12px; }
+
+    .faq-list { max-width: 760px; }
+
+    .faq-item {
+      border-bottom: 1px solid var(--rule);
+    }
+    .faq-item:first-child { border-top: 1px solid var(--rule); }
+
+    .faq-item__trigger {
+      width: 100%;
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      padding: 22px 0;
+    }
+    .faq-item__q {
+      font-family: 'Newsreader', serif;
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--ink);
+      line-height: 1.35;
+    }
+    .faq-item__icon {
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      border: 1px solid var(--rule);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      color: var(--rosemary);
+      transition: transform 200ms ease;
+    }
+    .faq-item.open .faq-item__icon { transform: rotate(45deg); }
+
+    .faq-item__body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 250ms ease;
+    }
+    .faq-item.open .faq-item__body { max-height: 400px; }
+    .faq-item__a {
+      font-size: 15px;
+      color: var(--body-clr);
+      padding-bottom: 22px;
+      line-height: 1.7;
+    }
+
+    /* ─── BOTTOM CTA ─────────────────────────────────────────── */
+    .bottom-cta {
+      background: var(--forest);
+      padding: 80px 0;
+      text-align: center;
+    }
+    .bottom-cta .eyebrow--bloom { margin-bottom: 20px; display: block; }
+    .bottom-cta h2 {
+      color: var(--paper);
+      margin-bottom: 16px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .bottom-cta h2 em {
+      color: var(--bloom);
+      font-style: italic;
+    }
+    .bottom-cta .lede {
+      color: rgba(240,232,218,0.82);
+      margin-bottom: 36px;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .bottom-cta__buttons {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ─── FOOTER ─────────────────────────────────────────────── */
+    .footer {
+      background: var(--forest);
+      border-top: 1px solid rgba(240,232,218,0.10);
+      padding: 48px 0 32px;
+    }
+    .footer__grid {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr 1fr;
+      gap: 40px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(240,232,218,0.10);
+      margin-bottom: 28px;
+    }
+    .footer__wordmark {
+      font-family: 'DM Serif Display', serif;
+      font-size: 18px;
+      color: var(--linen);
+      margin-bottom: 10px;
+    }
+    .footer__tagline {
+      font-family: 'Newsreader', serif;
+      font-style: italic;
+      font-size: 14px;
+      color: rgba(240,232,218,0.65);
+      margin-bottom: 20px;
+    }
+    .footer__col-head {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.20em;
+      text-transform: uppercase;
+      color: rgba(240,232,218,0.40);
+      margin-bottom: 14px;
+    }
+    .footer__links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .footer__links a {
+      font-size: 13px;
+      color: rgba(240,232,218,0.65);
+      transition: color 200ms ease;
+    }
+    .footer__links a:hover { color: var(--linen); }
+    .footer__bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer__copy {
+      font-size: 12px;
+      color: rgba(240,232,218,0.40);
+      font-family: 'DM Mono', monospace;
+    }
+
+    /* ─── RESPONSIVE ─────────────────────────────────────────── */
+    @media (max-width: 899px) {
+      .tier-grid { grid-template-columns: 1fr; gap: 36px; }
+      .tier-nav__link { padding: 16px 18px; font-size: 10px; }
+      .footer__grid { grid-template-columns: 1fr 1fr; gap: 28px; }
+      .comp-table { font-size: 13px; }
+      .comp-table th, .comp-table td { padding: 14px 14px; }
+    }
+    @media (max-width: 599px) {
+      .nav__links { display: none; }
+      .page-header { padding: 52px 0 44px; }
+      .tier-section { padding: 56px 0; }
+      .comparison, .faq, .bottom-cta { padding: 56px 0; }
+      .footer__grid { grid-template-columns: 1fr; }
+      .tier-nav__link { padding: 14px 14px; font-size: 9.5px; letter-spacing: 0.14em; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ NAV ══════════════════════════════════════════════════ -->
+  <nav class="nav">
+    <div class="container">
+      <div class="nav__inner">
+        <a href="/" class="nav__logo">Blossom <span>Automation</span></a>
+        <ul class="nav__links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/services" class="active">Services</a></li>
+          <li><a href="/how-it-works">How it works</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+        <a href="/contact" class="nav__cta">Book a call</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══ §1 · PAGE HEADER ══════════════════════════════════════ -->
+  <header class="page-header">
+    <div class="container">
+      <p class="eyebrow">Services</p>
+      <!-- LOCKED CONTENT — NEEDS REVIEW BEFORE LAUNCH -->
+      <h1>Three ways to work together.<br><em>One place to start.</em></h1>
+      <p class="lede" style="margin-top:20px;">We ask what your CRM actually needs right now. That answer determines where you start.</p>
+    </div>
+  </header>
+
+  <!-- ═══ TIER ANCHOR NAV ════════════════════════════════════════ -->
+  <nav class="tier-nav" aria-label="Service tiers">
+    <div class="container">
+      <div class="tier-nav__inner">
+        <a href="#foundation" class="tier-nav__link active">Foundation Sprint</a>
+        <a href="#growth" class="tier-nav__link">Growth Retainer</a>
+        <a href="#embedded" class="tier-nav__link">Embedded Partner</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══ §2 · FOUNDATION SPRINT ════════════════════════════════ -->
+  <section class="tier-section tier-section--paper" id="foundation">
+    <div class="container">
+      <div class="tier-grid">
+
+        <!-- Left: copy -->
+        <div>
+          <p class="tier-label">Foundation Sprint</p>
+          <!-- LOCKED CONTENT — NEEDS REVIEW BEFORE LAUNCH -->
+          <h2>Start here. <em>Every time.</em></h2>
+          <p class="lede" style="margin-top:16px; margin-bottom:20px;">You don't know what's broken. You know something is. This sprint names it.</p>
+          <p>Most organizations that reach out have the same problem in different clothes. Data they don't trust. Workflows that nobody follows. A CRM that technically works but practically doesn't. The Foundation Sprint is four weeks of structured diagnosis. We audit your portal, document what we find, and hand you a written report with the next three things to fix, in order. You leave with a decision, not a list of options.</p>
+          <p style="margin-top:16px;">This is not a discovery call stretched into a month. It is a real engagement with a real deliverable at the end.</p>
+
+          <!-- What's included -->
+          <ul class="feature-list" style="margin-top:28px;">
+            <li><strong>Full portal audit.</strong> Every pipeline, property, workflow, and contact list reviewed and documented against what you told us your process is.</li>
+            <li><strong>Gap analysis report.</strong> Written document identifying what's misaligned, what's abandoned, and what's actively costing you.</li>
+            <li><strong>Prioritized action plan.</strong> The next three things to fix, in order, with enough context that someone else could execute them.</li>
+            <li><strong>One working session.</strong> 90 minutes to walk through the findings and answer every question before we hand it off.</li>
+            <li><strong>You own everything.</strong> The report, the findings, the plan. No dependency on Blossom to use what we build.</li>
+          </ul>
+
+          <!-- What this isn't for -->
+          <div class="not-for">
+            <p class="not-for__label">Not the right fit if</p>
+            <!-- LOCKED CONTENT — NEEDS REVIEW BEFORE LAUNCH -->
+            <p class="not-for__text">You already know exactly what's broken and you need someone to fix it. If you're past diagnosis and into execution, the Growth Retainer is the better starting point.</p>
+          </div>
+
+          <div style="margin-top:32px;">
+            <a href="/contact" class="btn btn--primary">Start with a Foundation Sprint</a>
+          </div>
+        </div>
+
+        <!-- Right: spec card -->
+        <div>
+          <div class="tier-price">
+            <div class="tier-price__amount">$5,000</div>
+            <div class="tier-price__unit">Flat fee. No retainer required.</div>
+          </div>
+          <p class="tier-note">Foundation Sprint credit applies toward Growth Retainer if you continue.</p>
+
+          <div class="tier-card">
+            <div class="tier-card__header">What's included</div>
+            <div class="tier-card__row">
+              <span class="tier-card__key">Timeline</span>
+              <span class="tier-card__val">4 weeks</span>
+            </div>
+            <div class="tier-card__row">
+              <span class="tier-card__key">Scope</span>
+              <span class="tier-card__val">Fixed</span>
+            </div>
+            <div class="tier-card__row">
+              <span class="tier-card__key">Meetings</span>
+              <span class="tier-card__val">Kickoff + 90-min findings session</span>
+            </div>
+            <div class="tier-card__row">
+              <span class="tier-card__key">Deliverable</span>
+              <span class="tier-card__val">Written gap analysis + action plan</span>
+            </div>
+            <div class="tier-card__row">
+              <span class="tier-card__key">Platforms</span>
+              <span class="tier-card__val">HubSpot, Salesforce, Pipedrive</span>
+            </div>
+            <div class="tier-card__row">
+              <span class="tier-card__key">Implementation</span>
+              <span class="tier-card__val">Not included. Report only.</span>
+            </div>
+            <div class="tier-card__row">
+              <span class="tier-card__key">Commitment</span>
+              <span class="tier-card__val">One-time. No follow-on required.</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ §3 · GROWTH RETAINER ══════════════════════════════════ -->
+  <section class="tier-section tier-section--linen" id="growth">
+    <div class="container">
+      <div class="tier-grid">
+
+        <!-- Left: copy -->
+        <div>
+          <p class="tier-label">Growth Retainer</p>
+          <!-- LOCKED CONTENT — NEEDS REVIEW BEFORE LAUNCH -->
+          <h2>Someone watching the system. <em>Every month.</em></h2>
+          <p class="lede" style="margin-top:16px; margin-bottom:20px;">The CRM doesn't break all at once. It drifts. The retainer catches the drift.</p>
+          <p>You're the de facto CRM owner on top of everything else you do. That means the system gets attention when something breaks badly enough to complain about, and ignored the rest of the time. The Growth Retainer puts someone in the system every month whose only job is to notice what you don't have time to notice.</p>
+          <p style="margin-top:16px;">This is not a block of hours you burn down. It's a relationship. We show up with a working session, run the maintenance your system needs, and flag the things that are quietly costing you.</p>
+
+          <!-- What's included -->
+          <ul class="feature-list" style="margin-top:28px;">
+            <li><strong>Monthly working session.</strong> 60 to 90 minutes, agenda set by what the system needs that month.</li>
+            <li><strong>Ongoing CRM maintenance.</strong> Property cleanup, workflow audits, pipeline hygiene, data deduplication as needed.</li>
+            <li><strong>Async support.</strong> Questions answered within one business day. No ticket system, no queue.</li>
+            <li><strong>Monthly status summary.</strong> Short written update on what changed, what we flagged, what's next.</li>
+            <li><strong>Shared Notion workspace.</strong> Running log of decisions, open items, and what we've touched so nothing lives only in email.</li>
+          </ul>
+
+          <!-- What this isn't for -->
+          <div class="not-for">
+            <p class="not-for__label">Not the right fit if</p>
+            <!-- LOCKED CONTENT — NEEDS REVIEW BEFORE LAUNCH -->
+            <p class="not-for__text">You're still in diagnosis mode and not sure what needs to change. Start with the Foundation Sprint first. The retainer works best when there's a baseline we've both seen.</p>
+          </div>
+
+          <div style="margin-top:32px;">
+            <a href="/contact" class="btn btn--secondary">See what's included</a>
+          </div>
+        </div>
+
+        <!-- Right: spec card -->
+        <div>
+          <div class="tier-price">
+            <div class="tier-price__amount">$4,000<span style="font-size:24px; color:var(--sage);">/mo</span></div>
+            <div class="tier-price__unit">Six-month minimum. Month-to-month after.</div>
+          </div>
+          <p class="tier-note">Most clients start with a Foundation Sprint. The $5,000 sprint fee applies as a credit toward the first month.</p>
+
+          <div class="tier-card">
+            <div class="tier-card__header">What's included</div>
+            <div class="tier-card__row">
+              <span class="tier-card__key">Commitment</span>
+              <span class="tier-card__val">6-month minimum</span>
+            </div>
+            <div class="tier-card__row">
+              <span class="tier-card__key">Monthly session</span>
+              <span class="tier-card__val">60–90 min working call</span>
+            </div>
+            <div class="tier-card__row">
+              <span class="tier-card__key">Response time</span>
+              <span class="tier-card__val">1 business day async</span>
+            </div>
+            <div class="tier-card__row">
+              <span class="tier-card__key">Reporting</span>
+              <span class="tier-card__val">Monthly written summary</span>
+            </div>
+            <div class="tier-card__row">
+              <span class="tier-card__key">Documentation</span>
+              <span class="tier-card__val">Shared Notion workspace</span>
+            </div>
+            <div class="tier-card__row">
+              <span class="tier-card__key">Platforms</span>
+              <span class="tier-card__val">HubSpot primary, others case-by-case</span>
+            </div>
+            <div class="tier-card__row">
+              <span class="tier-card__key">Point of contact</span>
+              <span class="tier-card__val">Oscar directly. No handoffs.</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ §4 · EMBEDDED PARTNER ══════════════════════════════════ -->
+  <section class="tier-section tier-section--paper" id="embedded">
+    <div class="container">
+      <div class="tier-grid">
+
+        <!-- Left: copy -->
+        <div>
+          <p class="tier-label">Embedded Partner</p>
+          <!-- LOCKED CONTENT — NEEDS REVIEW BEFORE LAUNCH -->
+          <h2>Not a vendor. <em>Part of the team.</em></h2>
+          <p class="lede" style="margin-top:16px; margin-bottom:20px;">For teams where the CRM is touching every part of the business.</p>
+          <p>Some organizations are past the point where occasional check-ins are enough. The deals are moving faster. The team is bigger. The CRM is touching more parts of the business. At that point, a monthly retainer is the wrong shape. What you need is someone who operates inside your business on a weekly basis and knows your systems as well as you do.</p>
+          <p style="margin-top:16px;">The Embedded Partner engagement puts Blossom inside your operation. Weekly working sessions. Slack access during business hours. Real-time response when something breaks. Strategy involvement before decisions get made, not after. This is the engagement for companies that have outgrown piecemeal CRM support and need a true operational partner.</p>
+
+          <!-- What's included -->
+          <ul class="feature-list" style="margin-top:28px;">
+            <li><strong>Weekly working sessions.</strong> Standing time on the calendar, agenda shaped by what's actually happening in the business that week.</li>
+            <li><strong>Slack access during business hours.</strong> Direct line. Not a ticket, not an email thread.</li>
+            <li><strong>Strategy involvement.</strong> Input before decisions get made, not cleanup after.</li>
+            <li><strong>Full system ownership.</strong> We manage the CRM so your team doesn't have to think about it.</li>
+            <li><strong>Quarterly business review.</strong> Structured review of what the data says, what changed, and what the next quarter looks like.</li>
+          </ul>
+
+          <!-- What this isn't for -->
+          <div class="not-for">
+            <p class="not-for__label">Not the right fit if</p>
+            <!-- LOCKED CONTENT — NEEDS REVIEW BEFORE LAUNCH -->
+            <p class="not-for__text">You're a smaller team that needs cleanup and occasional maintenance. The Growth Retainer is built for you. Embedded Partner is for organizations where the CRM complexity has outgrown a monthly check-in.</p>
+          </div>
+
+          <div style="margin-top:32px;">
+            <a href="/contact" class="btn btn--secondary">Talk about Embedded Partner</a>
+          </div>
+        </div>
+
+        <!-- Right: spec card -->
+        <div>
+          <div class="tier-price">
+            <div class="tier-price__amount">$10,000<span style="font-size:24px; color:var(--sage);">/mo</span></div>
+            <div class="tier-price__unit">Annual commitment. Starts with Foundation Sprint.</div>
+          </div>
+          <p class="tier-note">This engagement has limited availability. We're in it with you, not managing a roster of 30 clients.</p>
+
+          <div class="tier-card">
+            <div class="tier-card__header">What's included</div>
+            <div class="tier-card__row">
+              <span class="tier-card__key">Commitment</span>
+              <span class="tier-card__val">12-month minimum</span>
+            </div>
+            <div class="tier-card__row">
+              <span class="tier-card__key">Working sessions</span>
+              <span class="tier-card__val">Weekly</span>
+            </div>
+            <div class="tier-card__row">
+              <span class="tier-card__key">Response time</span>
+              <span class="tier-card__val">Same business day</span>
+            </div>
+            <div class="tier-card__row">
+              <span class="tier-card__key">Slack access</span>
+              <span class="tier-card__val">Business hours</span>
+            </div>
+            <div class="tier-card__row">
+              <span class="tier-card__key">Strategy involvement</span>
+              <span class="tier-card__val">Before decisions, not after</span>
+            </div>
+            <div class="tier-card__row">
+              <span class="tier-card__key">Quarterly review</span>
+              <span class="tier-card__val">Included</span>
+            </div>
+            <div class="tier-card__row">
+              <span class="tier-card__key">Availability</span>
+              <span class="tier-card__val">Limited. 3–4 clients max.</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ §5 · COMPARISON TABLE ══════════════════════════════════ -->
+  <section class="comparison">
+    <div class="container">
+      <div class="comparison__header">
+        <p class="eyebrow eyebrow--rosemary">Compare tiers</p>
+        <!-- LOCKED CONTENT — NEEDS REVIEW BEFORE LAUNCH -->
+        <h2 style="margin-top:12px;">What changes at each level.</h2>
+      </div>
+
+      <table class="comp-table">
+        <thead>
+          <tr>
+            <th>What you get</th>
+            <th>Foundation Sprint</th>
+            <th>Growth Retainer</th>
+            <th>Embedded Partner</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Portal audit</td>
+            <td><span class="check">Full audit</span></td>
+            <td><span class="check">Ongoing</span></td>
+            <td><span class="check">Ongoing</span></td>
+          </tr>
+          <tr>
+            <td>Gap analysis report</td>
+            <td><span class="check">Included</span></td>
+            <td><span class="dash">—</span></td>
+            <td><span class="dash">—</span></td>
+          </tr>
+          <tr>
+            <td>Implementation work</td>
+            <td><span class="dash">Not included</span></td>
+            <td><span class="check">Included</span></td>
+            <td><span class="check">Included</span></td>
+          </tr>
+          <tr>
+            <td>Monthly working session</td>
+            <td><span class="dash">—</span></td>
+            <td><span class="check">60–90 min</span></td>
+            <td><span class="check">Weekly</span></td>
+          </tr>
+          <tr>
+            <td>Async support</td>
+            <td><span class="dash">—</span></td>
+            <td><span class="check">1 business day</span></td>
+            <td><span class="check">Same day</span></td>
+          </tr>
+          <tr>
+            <td>Slack access</td>
+            <td><span class="dash">—</span></td>
+            <td><span class="dash">—</span></td>
+            <td><span class="check">Business hours</span></td>
+          </tr>
+          <tr>
+            <td>Strategy involvement</td>
+            <td><span class="dash">—</span></td>
+            <td><span class="check">On request</span></td>
+            <td><span class="check">Built in</span></td>
+          </tr>
+          <tr>
+            <td>Quarterly business review</td>
+            <td><span class="dash">—</span></td>
+            <td><span class="dash">—</span></td>
+            <td><span class="check">Included</span></td>
+          </tr>
+          <tr>
+            <td>Shared Notion workspace</td>
+            <td><span class="dash">—</span></td>
+            <td><span class="check">Included</span></td>
+            <td><span class="check">Included</span></td>
+          </tr>
+          <tr>
+            <td>Commitment</td>
+            <td>One-time</td>
+            <td>6-month minimum</td>
+            <td>12-month minimum</td>
+          </tr>
+          <tr>
+            <td>Price</td>
+            <td>$5,000 flat</td>
+            <td>$4,000/month</td>
+            <td>$10,000/month</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ═══ §6 · FAQ ════════════════════════════════════════════════ -->
+  <section class="faq">
+    <div class="container">
+      <div class="faq__header">
+        <p class="eyebrow eyebrow--rosemary">Common questions</p>
+        <!-- LOCKED CONTENT — NEEDS REVIEW BEFORE LAUNCH -->
+        <h2 style="margin-top:12px;">Before you reach out.</h2>
+      </div>
+
+      <div class="faq-list">
+
+        <!-- LOCKED CONTENT — NEEDS REVIEW BEFORE LAUNCH -->
+
+        <div class="faq-item">
+          <button class="faq-item__trigger" aria-expanded="false">
+            <span class="faq-item__q">Do I have to start with the Foundation Sprint?</span>
+            <span class="faq-item__icon">+</span>
+          </button>
+          <div class="faq-item__body">
+            <p class="faq-item__a">Yes. Every engagement starts with the Foundation Sprint. It's not an upsell. It's how we make sure the work we do after it is actually the right work. Skipping diagnosis and going straight to retainer means we're making changes based on assumptions, not evidence. The sprint takes four weeks and ends with a written report. From there, you decide whether to continue.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-item__trigger" aria-expanded="false">
+            <span class="faq-item__q">What platforms do you work with?</span>
+            <span class="faq-item__icon">+</span>
+          </button>
+          <div class="faq-item__body">
+            <p class="faq-item__a">HubSpot is the primary platform. We're HubSpot certified since 2016 and a Solutions Partner since 2024. We also work with Salesforce, Pipedrive, and Zoho. If you're on something else, ask. The diagnostic work transfers, even if the hands-on implementation doesn't.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-item__trigger" aria-expanded="false">
+            <span class="faq-item__q">Who actually does the work?</span>
+            <span class="faq-item__icon">+</span>
+          </button>
+          <div class="faq-item__body">
+            <p class="faq-item__a">Oscar and Janie. There's no team of subcontractors behind the scenes. For specialized integrations, we occasionally bring in a trusted partner, and we'll tell you when that happens. You'll know who's touching your system.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-item__trigger" aria-expanded="false">
+            <span class="faq-item__q">What if I already know what's wrong?</span>
+            <span class="faq-item__icon">+</span>
+          </button>
+          <div class="faq-item__body">
+            <p class="faq-item__a">Most clients think they know what's wrong. Usually they're right about the symptom and wrong about the cause. The sprint is fast enough that even if you have a clear hypothesis going in, the audit either confirms it or redirects it before you spend six months executing on the wrong fix. We've never regretted starting with the audit.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-item__trigger" aria-expanded="false">
+            <span class="faq-item__q">Can we pause or cancel the retainer?</span>
+            <span class="faq-item__icon">+</span>
+          </button>
+          <div class="faq-item__body">
+            <p class="faq-item__a">The Growth Retainer has a six-month minimum. After that, it's month-to-month with 30 days notice to cancel. The Embedded Partner has a twelve-month minimum. That's the right commitment level for an engagement that deep in your business. We're transparent about this upfront, not in the contract footnotes.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-item__trigger" aria-expanded="false">
+            <span class="faq-item__q">We're a nonprofit. Do you work with nonprofits?</span>
+            <span class="faq-item__icon">+</span>
+          </button>
+          <div class="faq-item__body">
+            <p class="faq-item__a">Yes. We have experience with nonprofit donor systems, limited-resource environments, and mission-driven organizations across Texas. Our nonprofit rate is $135/hr for hourly work. The retainer tiers above are the same. Reach out and we'll talk through what fits.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ §7 · BOTTOM CTA ════════════════════════════════════════ -->
+  <section class="bottom-cta">
+    <div class="container">
+      <!-- LOCKED CONTENT — NEEDS REVIEW BEFORE LAUNCH -->
+      <span class="eyebrow eyebrow--bloom">Not sure which fits</span>
+      <h2>Tell us where your CRM hurts.<br><em>We'll tell you what we'd do.</em></h2>
+      <p class="lede">A 30-minute call is usually enough to know which tier is the right starting point. No pressure, no pitch. Just clarity.</p>
+      <div class="bottom-cta__buttons">
+        <a href="/contact" class="btn btn--primary">Book a discovery call</a>
+        <a href="https://rootcheck.blossomautomation.com" class="btn btn--ghost">Run a RootCheck instead</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ════════════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__wordmark">Blossom Automation</div>
+          <div class="footer__tagline">Good systems grow when tended.</div>
+        </div>
+        <div>
+          <div class="footer__col-head">Services</div>
+          <ul class="footer__links">
+            <li><a href="/services#foundation">Foundation Sprint</a></li>
+            <li><a href="/services#growth">Growth Retainer</a></li>
+            <li><a href="/services#embedded">Embedded Partner</a></li>
+            <li><a href="/for-agencies">For agencies</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer__col-head">Company</div>
+          <ul class="footer__links">
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/privacy">Privacy</a></li>
+            <li><a href="/terms">Terms</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer__col-head">Tools</div>
+          <ul class="footer__links">
+            <li><a href="https://rootcheck.blossomautomation.com">RootCheck</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span class="footer__copy">© 2026 Blossom Automation</span>
+        <span class="footer__copy">oscar@blossomautomation.com</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ─── FAQ ACCORDION JS ──────────────────────────────────────── -->
+  <script>
+    document.querySelectorAll('.faq-item__trigger').forEach(trigger => {
+      trigger.addEventListener('click', () => {
+        const item = trigger.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+        trigger.setAttribute('aria-expanded', !isOpen);
+      });
+    });
+
+    // Tier nav active state on scroll
+    const sections = ['foundation', 'growth', 'embedded'];
+    const tierLinks = document.querySelectorAll('.tier-nav__link');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          tierLinks.forEach(l => l.classList.remove('active'));
+          const active = document.querySelector(`.tier-nav__link[href="#${entry.target.id}"]`);
+          if (active) active.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-30% 0px -60% 0px' });
+    sections.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+  </script>
+
+</body>
+</html>

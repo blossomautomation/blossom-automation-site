@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page Not Found | Blossom Automation</title>
+  <meta name="description" content="The page you're looking for doesn't exist. Here are some places to go instead.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --forest:    #264F3E;
+      --rosemary:  #3D6649;
+      --paper:     #FBF9F2;
+      --linen:     #F0E8DA;
+      --bloom:     #E5BFB8;
+      --petal:     #F5E8E2;
+      --ink:       #1E2A20;
+      --body:      #4A5650;
+      --sage:      #7A8A7E;
+      --rule:      #E5E1D5;
+    }
+
+    html, body { height: 100%; }
+
+    body {
+      background: var(--paper);
+      color: var(--body);
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── NAV ── */
+    nav {
+      background: var(--forest);
+      border-bottom: 1px solid rgba(240,232,218,0.10);
+      flex-shrink: 0;
+    }
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 32px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-wordmark {
+      font-family: 'DM Serif Display', serif;
+      font-size: 18px;
+      color: var(--linen);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(240,232,218,0.72);
+      text-decoration: none;
+      transition: color 200ms ease;
+    }
+    .nav-links a:hover { color: var(--linen); }
+
+    /* ── MAIN ERROR BLOCK ── */
+    main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+    }
+
+    .error-block {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 80px 32px;
+      text-align: left;
+    }
+
+    .error-number {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 24px;
+      display: block;
+    }
+
+    .error-block h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(36px, 5vw, 52px);
+      color: var(--ink);
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .error-block h1 em {
+      font-style: italic;
+      font-family: 'Newsreader', serif;
+      color: var(--rosemary);
+      font-optical-sizing: auto;
+    }
+
+    .error-lede {
+      font-family: 'Newsreader', serif;
+      font-style: italic;
+      font-size: 19px;
+      line-height: 1.55;
+      color: var(--sage);
+      margin-bottom: 40px;
+    }
+
+    /* Link list */
+    .link-list {
+      list-style: none;
+      border-top: 1px solid var(--rule);
+      margin-bottom: 40px;
+    }
+    .link-list li {
+      border-bottom: 1px solid var(--rule);
+    }
+    .link-list li a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+      text-decoration: none;
+      color: var(--ink);
+      font-size: 15px;
+      font-weight: 500;
+      transition: color 200ms ease;
+      gap: 12px;
+    }
+    .link-list li a:hover { color: var(--rosemary); }
+    .link-list li a:hover .arrow { transform: translateX(4px); }
+
+    .link-meta {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--sage);
+      font-weight: 400;
+    }
+
+    .link-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .arrow {
+      color: var(--rosemary);
+      font-size: 16px;
+      transition: transform 200ms ease;
+    }
+
+    /* Primary CTA */
+    .error-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--bloom);
+      color: var(--ink);
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 12px 22px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 200ms ease;
+    }
+    .error-cta:hover { background: #DCAFA6; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--forest);
+      padding: 40px 32px;
+      flex-shrink: 0;
+    }
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer-wordmark {
+      font-family: 'DM Serif Display', serif;
+      font-size: 16px;
+      color: var(--linen);
+    }
+    .footer-bottom p {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(240,232,218,0.40);
+    }
+
+    @media (max-width: 599px) {
+      .nav-links { display: none; }
+      .error-block { padding: 60px 20px; }
+      footer { padding-left: 20px; padding-right: 20px; }
+      .footer-inner { flex-direction: column; align-items: flex-start; gap: 8px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="/" class="nav-wordmark">Blossom Automation</a>
+      <ul class="nav-links">
+        <li><a href="/services">Services</a></li>
+        <li><a href="/how-it-works">How it works</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ERROR BLOCK -->
+  <main>
+    <div class="error-block">
+      <span class="error-number">404 — Page not found</span>
+      <h1>This page<br><em>doesn't exist.</em></h1>
+      <p class="error-lede">The link is broken or the page moved. A few places worth going instead.</p>
+
+      <ul class="link-list">
+        <li>
+          <a href="/">
+            <span>Go home</span>
+            <span class="link-right">
+              <span class="link-meta">Start here</span>
+              <span class="arrow">→</span>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="/services">
+            <span>See our services</span>
+            <span class="link-right">
+              <span class="link-meta">Foundation Sprint · Growth Retainer · Embedded Partner</span>
+              <span class="arrow">→</span>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="/contact">
+            <span>Talk to us</span>
+            <span class="link-right">
+              <span class="link-meta">Book a call or send a message</span>
+              <span class="arrow">→</span>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="https://rootcheck.blossomautomation.com" target="_blank" rel="noopener">
+            <span>Run a RootCheck</span>
+            <span class="link-right">
+              <span class="link-meta">Free HubSpot audit</span>
+              <span class="arrow">→</span>
+            </span>
+          </a>
+        </li>
+      </ul>
+
+      <a href="/" class="error-cta">Back to homepage</a>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <span class="footer-wordmark">Blossom Automation</span>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Blossom Automation LLC. Austin, TX.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
