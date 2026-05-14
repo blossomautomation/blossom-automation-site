@@ -38,42 +38,17 @@
     }
 
     /* ── NAV ── */
-    nav {
-      background: var(--forest);
-      border-bottom: 1px solid rgba(240,232,218,0.10);
-      flex-shrink: 0;
-    }
-    .nav-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 32px;
-      height: 64px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .nav-wordmark {
-      font-family: 'DM Serif Display', serif;
-      font-size: 18px;
-      color: var(--linen);
-      text-decoration: none;
-      letter-spacing: -0.01em;
-    }
-    .nav-links {
-      display: flex;
-      gap: 32px;
-      list-style: none;
-    }
-    .nav-links a {
-      font-family: 'DM Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: rgba(240,232,218,0.72);
-      text-decoration: none;
-      transition: color 200ms ease;
-    }
-    .nav-links a:hover { color: var(--linen); }
+    .nav { position: sticky; top: 0; z-index: 100; background: var(--forest); border-bottom: 1px solid rgba(255,255,255,0.07); }
+    .nav__inner { display: flex; align-items: center; justify-content: space-between; height: 58px; max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+    .nav__logo { font-family: var(--fs); font-size: 0.9375rem; font-weight: 400; color: var(--linen); letter-spacing: 0.01em; text-decoration: none; }
+    .nav__logo span { font-style: italic; color: var(--bloom); }
+    .nav__links { display: flex; gap: 2rem; list-style: none; }
+    .nav__links a { font-family: var(--fb); font-size: 0.8125rem; color: rgba(240,232,218,0.65); letter-spacing: 0.01em; transition: color 0.15s; text-decoration: none; }
+    .nav__links a:hover, .nav__links a.active { color: var(--linen); }
+    .nav__links a.active { border-bottom: 1px solid var(--bloom); padding-bottom: 1px; }
+    .nav__cta { font-family: var(--fb); font-size: 0.8125rem; font-weight: 600; color: var(--ink); background: var(--bloom); padding: 0.5rem 1.25rem; border-radius: 6px; letter-spacing: 0.01em; transition: opacity 0.15s; white-space: nowrap; text-decoration: none; }
+    .nav__cta:hover { opacity: 0.85; }
+    @media (max-width: 640px) { .nav__links { display: none; } .nav__cta { font-size: 0.75rem; padding: 0.4rem 1rem; } }
 
     /* ── MAIN ERROR BLOCK ── */
     main {
