@@ -52,13 +52,16 @@
 
     /* NAV */
     .nav { position: sticky; top: 0; z-index: 100; background: var(--forest); border-bottom: 1px solid rgba(255,255,255,0.07); }
-    .nav__i { display: flex; align-items: center; justify-content: space-between; height: 58px; }
+    .nav__inner { display: flex; align-items: center; justify-content: space-between; height: 58px; }
     .nav__logo { font-family: var(--fs); font-size: 0.9375rem; font-weight: 400; color: var(--linen); letter-spacing: 0.01em; }
+    .nav__logo span { font-style: italic; color: var(--bloom); }
     .nav__links { display: flex; gap: 2rem; list-style: none; }
     .nav__links a { font-family: var(--fb); font-size: 0.8125rem; color: rgba(240,232,218,0.65); letter-spacing: 0.01em; transition: color 0.15s; }
-    .nav__links a:hover, .nav__links a[aria-current] { color: var(--linen); }
-    .nav__links a[aria-current] { border-bottom: 1px solid var(--bloom); padding-bottom: 1px; }
-    @media (max-width: 640px) { .nav__links { display: none; } }
+    .nav__links a:hover, .nav__links a.active { color: var(--linen); }
+    .nav__links a.active { border-bottom: 1px solid var(--bloom); padding-bottom: 1px; }
+    .nav__cta { font-family: var(--fb); font-size: 0.8125rem; font-weight: 600; color: var(--ink); background: var(--bloom); padding: 0.5rem 1.25rem; border-radius: 6px; letter-spacing: 0.01em; transition: opacity 0.15s; white-space: nowrap; }
+    .nav__cta:hover { opacity: 0.85; }
+    @media (max-width: 640px) { .nav__links { display: none; } .nav__cta { font-size: 0.75rem; padding: 0.4rem 1rem; } }
 
     /* HERO */
     .hero { background: var(--forest); padding: 5.5rem 0 5rem; position: relative; overflow: hidden; }
