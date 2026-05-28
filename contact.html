@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Blossom Automation | Schedule a call or send a message</title>
-  <meta name="description" content="Two ways to reach Blossom Automation. Schedule a call directly or send a message. No gatekeeping, no sales sequence.">
+  <title>Contact Blossom Automation | Two ways to reach us</title>
+  <meta name="description" content="Send a message, book a call, or run a RootCheck first. Pick the path that matches where you are.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,8 +18,10 @@
     :root {
       --forest:    #264F3E;
       --rosemary:  #3D6649;
-      --bloom:     #E5BFB8;
-      --petal:     #F5E8E2;
+      --bloom:     #2C4F94;  /* Sapphire */
+      --bloom-deep: #21407C;
+      --sky:        #9CC7E4;
+      --petal:     #E6EDF8;  /* Sapphire Wash */
       --paper:     #FBF9F2;
       --linen:     #F0E8DA;
       --ink:       #1E2A20;
@@ -32,6 +34,7 @@
 
     /* ─── RESET ──────────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    h1 em, h2 em, h3 em { font-weight: 400; }
     html { scroll-behavior: smooth; }
     body {
       font-family: 'Instrument Sans', sans-serif;
@@ -64,6 +67,8 @@
       font-style: italic;
       color: var(--rosemary);
     }
+    .page-header h1 em { color: #9CC7E4; } /* Forest bg: sky tint */
+
     h2 {
       font-family: 'Newsreader', serif;
       font-size: clamp(22px, 2.6vw, 28px);
@@ -89,6 +94,12 @@
     }
     .eyebrow--rosemary { color: var(--rosemary); }
     .eyebrow--bloom    { color: var(--bloom); }
+    /* Sky tint override: --bloom is dark Sapphire, fails on Forest/Rosemary */
+    .bottom-cta .eyebrow--bloom,
+    .fallback .eyebrow--bloom,
+    .hero .eyebrow--bloom,
+    .page-header .eyebrow--bloom { color: #9CC7E4; }
+
 
     /* ─── NAV ────────────────────────────────────────────────── */
     .nav {
@@ -113,7 +124,7 @@
     .nav__logo span {
       font-family: 'Newsreader', serif;
       font-style: italic;
-      color: var(--bloom);
+      color: #9CC7E4;
     }
     .nav__links {
       display: flex;
@@ -126,13 +137,11 @@
       color: rgba(240,232,218,0.82);
       transition: color 200ms ease;
     }
-    .nav__links a:hover,
+    .nav__links a:hover { color: var(--linen); }
     .nav__links a.active {
       color: var(--linen);
-    }
-    .nav__links a.active {
       text-decoration: underline;
-      text-decoration-color: var(--bloom);
+      text-decoration-color: #9CC7E4;
       text-underline-offset: 4px;
       text-decoration-thickness: 2px;
     }
@@ -140,31 +149,13 @@
       font-family: 'Instrument Sans', sans-serif;
       font-size: 13px;
       font-weight: 600;
-      background: var(--bloom);
+      background: var(--paper);
       color: var(--ink);
       padding: 8px 16px;
       border-radius: 6px;
       transition: background 200ms ease;
     }
-    .nav__cta:hover { background: #DCAFA6; }
-    .nav__links a.active {
-      color: var(--linen);
-      text-decoration: underline;
-      text-decoration-color: var(--bloom);
-      text-underline-offset: 4px;
-      text-decoration-thickness: 2px;
-    }
-    .nav__cta {
-      font-family: 'Instrument Sans', sans-serif;
-      font-size: 13px;
-      font-weight: 600;
-      background: var(--bloom);
-      color: var(--ink);
-      padding: 8px 16px;
-      border-radius: 6px;
-      transition: background 200ms ease;
-    }
-    .nav__cta:hover { background: #DCAFA6; }
+    .nav__cta:hover { background: var(--linen); }
 
     /* ─── BUTTONS ────────────────────────────────────────────── */
     .btn {
@@ -177,11 +168,14 @@
       border: 1px solid transparent;
       cursor: pointer;
       transition: background 200ms ease, border-color 200ms ease, color 200ms ease;
+      text-align: center;
     }
-    .btn--primary  { background: var(--bloom); color: var(--ink); }
-    .btn--primary:hover { background: #DCAFA6; }
+    .btn--primary  { background: var(--bloom); color: var(--paper); }
+    .btn--primary:hover { background: var(--bloom-deep); }
     .btn--ghost { background: transparent; border-color: rgba(240,232,218,0.40); color: var(--linen); }
     .btn--ghost:hover { background: rgba(240,232,218,0.08); border-color: rgba(240,232,218,0.65); }
+    .btn--ghost-ink { background: transparent; border-color: var(--rule-strong); color: var(--ink); }
+    .btn--ghost-ink:hover { border-color: var(--rosemary); color: var(--rosemary); }
 
     /* ─── §1 PAGE HEADER ─────────────────────────────────────── */
     .page-header {
@@ -230,17 +224,26 @@
     .path-card__body {
       padding: 32px;
     }
+    .path-card__desc {
+      font-size: 15px;
+      color: var(--body-clr);
+      line-height: 1.65;
+      margin-bottom: 24px;
+    }
     .path-card__note {
       font-family: 'Newsreader', serif;
       font-style: italic;
       font-size: 14px;
-      color: var(--body-clr);
+      color: var(--sage);
       margin-top: 20px;
       padding-top: 20px;
       border-top: 1px solid var(--rule);
     }
 
-    /* Schedule path — Linen tint */
+    /* Message card — Paper */
+    .path-card--message { background: var(--paper); }
+
+    /* Schedule card — Linen tint */
     .path-card--schedule {
       background: var(--linen);
       border-color: var(--rule-strong);
@@ -249,14 +252,8 @@
       background: var(--linen);
       border-bottom-color: var(--rule-strong);
     }
-    .path-card--schedule .path-card__body {
-      background: var(--linen);
-    }
-
-    /* Message path — Paper */
-    .path-card--message {
-      background: var(--paper);
-    }
+    .path-card--schedule .path-card__body { background: var(--linen); }
+    .path-card--schedule .path-card__note { border-top-color: var(--rule-strong); }
 
     /* ─── CALENDAR EMBED ─────────────────────────────────────── */
     .calendar-wrapper {
@@ -297,16 +294,24 @@
       width: 100% !important;
       border: none !important;
     }
+    .calendar-fallback {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.10em;
+      color: var(--sage);
+      margin-top: 14px;
+      text-align: center;
+    }
+    .calendar-fallback a {
+      color: var(--rosemary);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
 
     /* ─── FORM ───────────────────────────────────────────────── */
     .contact-form {
       display: flex;
       flex-direction: column;
-      gap: 16px;
-    }
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
       gap: 16px;
     }
     .form-group {
@@ -323,7 +328,6 @@
       color: var(--body-clr);
     }
     .form-group input,
-    .form-group select,
     .form-group textarea {
       font-family: 'Instrument Sans', sans-serif;
       font-size: 15px;
@@ -335,18 +339,8 @@
       outline: none;
       transition: border-color 200ms ease, box-shadow 200ms ease;
       width: 100%;
-      appearance: none;
-      -webkit-appearance: none;
-    }
-    .form-group select {
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237A8A7E' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 14px center;
-      padding-right: 36px;
-      cursor: pointer;
     }
     .form-group input:focus,
-    .form-group select:focus,
     .form-group textarea:focus {
       border-color: var(--rosemary);
       box-shadow: 0 0 0 3px rgba(61,102,73,0.10);
@@ -361,16 +355,8 @@
       color: var(--sage);
       opacity: 0.7;
     }
-
-    .form-submit {
-      margin-top: 4px;
-    }
-    .form-submit .btn {
-      width: 100%;
-      text-align: center;
-      padding: 14px;
-      font-size: 15px;
-    }
+    .form-submit { margin-top: 4px; }
+    .form-submit .btn { width: 100%; padding: 14px; font-size: 15px; }
     .form-privacy {
       font-size: 12px;
       color: var(--sage);
@@ -386,22 +372,55 @@
       text-align: center;
       padding: 40px 20px;
     }
-    .form-success__icon {
-      font-size: 32px;
-      margin-bottom: 16px;
-    }
+    .form-success__icon { font-size: 32px; margin-bottom: 16px; }
     .form-success h3 {
       font-family: 'Newsreader', serif;
       font-size: 22px;
       color: var(--ink);
       margin-bottom: 10px;
     }
-    .form-success p {
+    .form-success p { font-size: 15px; color: var(--body-clr); }
+
+    /* ─── §3 ROOTCHECK STRIP ─────────────────────────────────── */
+    .rootcheck-strip {
+      background: var(--petal);
+      padding: 64px 0;
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+    }
+    .rootcheck-strip__inner {
+      max-width: 680px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .rootcheck-strip .eyebrow { margin-bottom: 16px; }
+    .rootcheck-strip h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(26px, 3vw, 36px);
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    .rootcheck-strip h2 em {
+      font-family: 'Newsreader', serif;
+      font-style: italic;
+      color: var(--rosemary);
+    }
+    .rootcheck-strip p {
       font-size: 15px;
       color: var(--body-clr);
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+    .rootcheck-strip__btns {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
     }
 
-    /* ─── §3 FALLBACK ────────────────────────────────────────── */
+    /* ─── §4 FALLBACK ────────────────────────────────────────── */
     .fallback {
       background: var(--forest);
       padding: 64px 0;
@@ -422,12 +441,8 @@
       line-height: 1.3;
       margin-bottom: 10px;
     }
-    .fallback h2 em { font-style: italic; color: var(--bloom); }
-    .fallback p {
-      font-size: 15px;
-      color: rgba(240,232,218,0.75);
-      line-height: 1.65;
-    }
+    .fallback h2 em { font-style: italic; color: #9CC7E4; }
+    .fallback p { font-size: 15px; color: rgba(240,232,218,0.75); line-height: 1.65; }
     .fallback__right {
       display: flex;
       flex-direction: column;
@@ -509,18 +524,82 @@
       .nav__links { display: none; }
       .page-header { padding: 52px 0 44px; }
       .two-paths { padding: 48px 0 60px; }
+      .rootcheck-strip { padding: 48px 0; }
       .fallback { padding: 48px 0; }
       .path-card__header { padding: 22px 24px 20px; }
       .path-card__body { padding: 24px; }
-      .form-row { grid-template-columns: 1fr; }
+      .rootcheck-strip__btns { flex-direction: column; align-items: center; }
       .footer__grid { grid-template-columns: 1fr; }
     }
+
+    .footer { background: var(--forest); border-top: 1px solid rgba(255,255,255,0.06); padding: 3.5rem 0 2rem; }
+    .footer-top { display: grid; grid-template-columns: 1fr 2fr; gap: 4rem; margin-bottom: 3rem; }
+    @media (max-width: 680px) { .footer-top { grid-template-columns: 1fr; gap: 2rem; } }
+    .footer-logo { font-family: var(--fs); font-size: 0.9375rem; color: var(--linen); display: block; margin-bottom: 0.375rem; }
+    .footer-tagline { font-family: var(--fs); font-style: italic; font-size: 0.875rem; color: #7B8F80; }
+    .footer-nav { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+    @media (max-width: 560px) { .footer-nav { grid-template-columns: 1fr 1fr; } }
+    .fcol-title { font-family: var(--fm); font-size: var(--fm-size); letter-spacing: 0.16em; text-transform: uppercase; color: #738979; margin-bottom: 0.75rem; }
+    .footer-nav ul { list-style: none; }
+    .footer-nav a { font-family: var(--fb); font-size: 0.875rem; color: #ADBBA8; line-height: 2.1; transition: color 0.15s; }
+    .footer-nav a:hover { color: var(--linen); }
+    .footer-meta { border-top: 1px solid rgba(255,255,255,0.06); padding-top: 1.5rem; font-family: var(--fm); font-size: var(--fm-size); letter-spacing: 0.1em; color: #527160; text-transform: uppercase; }
+
+    /* ─── CANONICAL FOOTER CSS ───────────────────────────────── */
+    .footer { background: var(--forest); border-top: 1px solid rgba(255,255,255,0.06); padding: 3.5rem 0 2rem; }
+    .footer-top { display: grid; grid-template-columns: 1fr 2fr; gap: 4rem; margin-bottom: 3rem; }
+    @media (max-width: 680px) { .footer-top { grid-template-columns: 1fr; gap: 2rem; } }
+    .footer-logo { font-family: var(--fs); font-size: 0.9375rem; color: var(--linen); display: block; margin-bottom: 0.375rem; text-decoration: none; }
+    .footer-tagline { font-family: var(--fs); font-style: italic; font-size: 0.875rem; color: #7B8F80; }
+    .footer-nav { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+    @media (max-width: 560px) { .footer-nav { grid-template-columns: 1fr 1fr; } }
+    .fcol-title { font-family: var(--fm); font-size: var(--fm-size); letter-spacing: 0.16em; text-transform: uppercase; color: #738979; margin-bottom: 0.75rem; }
+    .footer-nav ul { list-style: none; }
+    .fcol ul { list-style: none; }
+    .footer-nav a, .fcol a { font-family: var(--fb); font-size: 0.875rem; color: #ADBBA8; line-height: 2.1; transition: color 0.15s; text-decoration: none; }
+    .footer-nav a:hover, .fcol a:hover { color: var(--linen); }
+    .footer-meta { border-top: 1px solid rgba(255,255,255,0.06); padding-top: 1.5rem; font-family: var(--fm); font-size: var(--fm-size); letter-spacing: 0.1em; color: #527160; text-transform: uppercase; }
+  
+    /* ── DOT-GRID SURFACE TREATMENT (D1/D3, launch) ── */
+    .dot-grid {
+      background-image: radial-gradient(circle, rgba(122, 138, 126, 0.35) 1px, transparent 1.4px);
+      background-size: 24px 24px;
+    }
+    .dot-grid.bg-paper { background-color: var(--paper); }
+    .dot-grid.bg-linen { background-color: var(--linen); }
+    .section--paper.dot-grid { background-color: var(--paper); }
+    .section--linen.dot-grid { background-color: var(--linen); }
+    /* D1 card: lifts off dot field via shadow + stronger border */
+    .d1-card {
+      background: var(--paper);
+      border: 1px solid #D5CFBE;
+      border-radius: 12px;
+      padding: 2.5rem;
+      box-shadow: 0 1px 2px rgba(30,42,32,0.04), 0 6px 20px rgba(30,42,32,0.06);
+    }
+    .dot-grid.bg-linen .d1-card,
+    .section--linen.dot-grid .d1-card { border-color: var(--border); }
+    @media (max-width: 600px) { .d1-card { padding: 1.5rem; } }
+
+    /* DM Serif Display — weight 400 across all display headings */
+    h1, h2, h3 { font-weight: 400; }
+    h1 em, h2 em, h3 em { font-weight: 400; }
+
+    /* Mobile responsive pass */
+    @media (max-width: 600px) {
+      .container { padding: 0 16px; }
+      section, .section, .what-we-do, .why-we-work, .who-runs-it,
+      .tier-section, .comparison, .faq { padding: 3.5rem 0 !important; }
+      .bottom-cta { padding: 4rem 0 !important; }
+      .d1-card { padding: 1.5rem; }
+    }
+
   </style>
 </head>
 <body>
 
   <!-- ═══ NAV ══════════════════════════════════════════════════ -->
-    <nav class="nav">
+  <nav class="nav">
     <div class="container">
       <div class="nav__inner">
         <a href="/" class="nav__logo">Blossom <span>Automation</span></a>
@@ -530,7 +609,7 @@
           <li><a href="/how-it-works">How it works</a></li>
           <li><a href="/about">About</a></li>
         </ul>
-        <a href="/contact" class="nav__cta">Book a call</a>
+        <a href="/contact" class="nav__cta active">CRM a mess?</a>
       </div>
     </div>
   </nav>
@@ -538,27 +617,75 @@
   <!-- ═══ §1 · PAGE HEADER ══════════════════════════════════════ -->
   <header class="page-header">
     <div class="container">
-      <p class="eyebrow">Contact</p>
-      <!-- LOCKED CONTENT — NEEDS REVIEW BEFORE LAUNCH -->
-      <h1>Tell us where your CRM hurts.<br><em>We'll tell you what we'd do.</em></h1>
-      <p class="lede">Two ways to reach us. Pick whichever feels right. Both land in the same place.</p>
+      <p class="eyebrow">Two ways in</p>
+      <h1>Need answers now,<br><em>or ready to talk?</em></h1>
+      <p class="lede">Pick the one that matches where you are.</p>
     </div>
   </header>
 
   <!-- ═══ §2 · TWO PATHS ════════════════════════════════════════ -->
-  <section class="two-paths">
+  <section class="two-paths dot-grid bg-paper">
     <div class="container">
+      <div class="d1-card">
       <div class="two-paths__grid">
 
-        <!-- Path A: Schedule a call -->
-        <div class="path-card path-card--schedule">
+        <!-- Path A: Send a message (LEFT — lower friction first) -->
+        <div class="path-card path-card--message">
           <div class="path-card__header">
-            <p class="path-card__eyebrow">Schedule a call</p>
-            <!-- LOCKED CONTENT — NEEDS REVIEW BEFORE LAUNCH -->
-            <h2>Pick a time <em>that works for you.</em></h2>
+            <p class="path-card__eyebrow">Want answers fast?</p>
+            <h2>Send us <em>a message.</em></h2>
           </div>
           <div class="path-card__body">
-            <!-- HubSpot Meetings embed -->
+            <p class="path-card__desc">Tell us what's going on with your CRM. One or two sentences is enough. We reply within a few hours, usually less.</p>
+
+            <form class="contact-form" id="contactForm" novalidate>
+
+              <div class="form-group">
+                <label for="message">What's going on?</label>
+                <textarea id="message" name="message" placeholder="Give us a sentence or two. No need to prepare anything formal." required></textarea>
+              </div>
+
+              <div class="form-group" id="tierGroup">
+                <label for="tier">Interested in (optional)</label>
+                <select id="tier" name="tier" style="font-family:'Instrument Sans',sans-serif;font-size:15px;color:var(--ink);background:var(--paper);border:1px solid var(--rule);border-radius:6px;padding:12px 14px;width:100%;outline:none;transition:border-color 200ms ease;appearance:none;cursor:pointer;">
+                  <option value="">Not sure yet</option>
+                  <option value="foundation">Foundation Sprint — $5,000 flat</option>
+                  <option value="growth">Growth Retainer — $4,000/month</option>
+                  <option value="embedded">Embedded Partner — $10,000/month</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="email">Work email</label>
+                <input type="email" id="email" name="email" placeholder="you@company.com" required>
+              </div>
+
+              <div class="form-submit">
+                <button type="submit" class="btn btn--primary">Send it</button>
+              </div>
+
+              <p class="form-privacy">Just a reply from Oscar or Janie. No sequence, no pitch.</p>
+
+            </form>
+
+            <!-- Success state -->
+            <div class="form-success" id="formSuccess">
+              <div class="form-success__icon">🌱</div>
+              <h3>Got it. We'll be in touch.</h3>
+              <p>Oscar or Janie will reply within a few hours. If anything feels urgent, email oscar@blossomautomation.com directly.</p>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Path B: Book a call (RIGHT — higher friction, self-selected) -->
+        <div class="path-card path-card--schedule">
+          <div class="path-card__header">
+            <p class="path-card__eyebrow">Ready to talk?</p>
+            <h2>Book <em>a call.</em></h2>
+          </div>
+          <div class="path-card__body">
+            <p class="path-card__desc">Thirty minutes. No prep required. We'll ask a few questions and tell you exactly where to start.</p>
             <div class="calendar-wrapper">
               <div class="calendar-wrapper__label">
                 <div class="calendar-wrapper__dot"></div>
@@ -569,75 +696,7 @@
                 data-src="https://blossomautomation.com/meetings/oscargo/meet-with-oscar-from-blossom?embed=true"
               ></div>
             </div>
-            <p class="path-card__note">30 minutes. No prep required. We'll ask a few questions and you'll leave with a clear sense of where to start.</p>
-          </div>
-        </div>
-
-        <!-- Path B: Send a message -->
-        <div class="path-card path-card--message">
-          <div class="path-card__header">
-            <p class="path-card__eyebrow">Send a message</p>
-            <!-- LOCKED CONTENT — NEEDS REVIEW BEFORE LAUNCH -->
-            <h2>Not ready for a call? <em>That's fine.</em></h2>
-          </div>
-          <div class="path-card__body">
-
-            <form class="contact-form" id="contactForm" novalidate>
-
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="firstName">First name</label>
-                  <input type="text" id="firstName" name="firstName" placeholder="Oscar" required>
-                </div>
-                <div class="form-group">
-                  <label for="lastName">Last name</label>
-                  <input type="text" id="lastName" name="lastName" placeholder="Gonzalez" required>
-                </div>
-              </div>
-
-              <div class="form-group">
-                <label for="email">Work email</label>
-                <input type="email" id="email" name="email" placeholder="you@company.com" required>
-              </div>
-
-              <div class="form-group">
-                <label for="company">Company</label>
-                <input type="text" id="company" name="company" placeholder="Acme Inc.">
-              </div>
-
-              <div class="form-group">
-                <label for="crm">CRM you're using</label>
-                <select id="crm" name="crm">
-                  <option value="" disabled selected>Select one</option>
-                  <option value="hubspot">HubSpot</option>
-                  <option value="salesforce">Salesforce</option>
-                  <option value="pipedrive">Pipedrive</option>
-                  <option value="zoho">Zoho</option>
-                  <option value="other">Something else</option>
-                  <option value="none">We don't have one yet</option>
-                </select>
-              </div>
-
-              <div class="form-group">
-                <label for="message">What's going on with your CRM?</label>
-                <textarea id="message" name="message" placeholder="Give us a sentence or two. No need to prepare anything formal." required></textarea>
-              </div>
-
-              <div class="form-submit">
-                <button type="submit" class="btn btn--primary">Send message</button>
-              </div>
-
-              <p class="form-privacy">Just a reply from Oscar or Janie.</p>
-
-            </form>
-
-            <!-- Success state -->
-            <div class="form-success" id="formSuccess">
-              <div class="form-success__icon">🌱</div>
-              <h3>Got it. We'll be in touch.</h3>
-              <p>Oscar or Janie will reply within one business day. If anything feels urgent, email oscar@blossomautomation.com directly.</p>
-            </div>
-
+            <p class="calendar-fallback">If the embed doesn't load, <a href="https://blossomautomation.com/meetings/oscargo/meet-with-oscar-from-blossom" target="_blank" rel="noopener">book directly here</a>.</p>
           </div>
         </div>
 
@@ -645,19 +704,33 @@
     </div>
   </section>
 
-  <!-- ═══ §3 · FALLBACK ═════════════════════════════════════════ -->
+  <!-- ═══ §3 · ROOTCHECK STRIP ══════════════════════════════════ -->
+  <section class="rootcheck-strip">
+    <div class="container">
+      <div class="rootcheck-strip__inner">
+        <p class="eyebrow">Not sure where to start?</p>
+        <h2>Run a RootCheck <em>first.</em></h2>
+        <p>Connects to your HubSpot portal and scores what it finds. Data Trust. Process Integrity. System Utilization. You read the report and decide what's next.</p>
+        <div class="rootcheck-strip__btns">
+          <a href="https://rootcheck.blossomautomation.com" class="btn btn--primary" target="_blank" rel="noopener">Begin a RootCheck</a>
+          <a href="https://blossomautomation.com/meetings/oscargo/meet-with-oscar-from-blossom" class="btn btn--ghost-ink" target="_blank" rel="noopener">Book a call after you see the results</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ §4 · FALLBACK ═════════════════════════════════════════ -->
   <section class="fallback">
     <div class="container">
       <div class="fallback__inner">
         <div class="fallback__left">
           <span class="eyebrow eyebrow--bloom">Prefer to go direct</span>
-          <!-- LOCKED CONTENT — NEEDS REVIEW BEFORE LAUNCH -->
           <h2>Or reach out <em>the old-fashioned way.</em></h2>
           <p>Email lands directly with Oscar. Not a support inbox, not a shared alias. If you'd rather start with a diagnostic, RootCheck connects to your HubSpot portal and scores what it finds.</p>
         </div>
         <div class="fallback__right">
           <a href="mailto:oscar@blossomautomation.com" class="fallback__mailto">oscar@blossomautomation.com</a>
-          <a href="https://rootcheck.blossomautomation.com" class="btn btn--ghost">Run a RootCheck instead</a>
+          <a href="https://rootcheck.blossomautomation.com" class="btn btn--ghost" target="_blank" rel="noopener">Run a RootCheck instead</a>
         </div>
       </div>
     </div>
@@ -715,21 +788,13 @@
 
       const data = {
         fields: [
-          { name: 'firstname',  value: form.firstName.value.trim() },
-          { name: 'lastname',   value: form.lastName.value.trim() },
-          { name: 'email',      value: form.email.value.trim() },
-          { name: 'company',    value: form.company.value.trim() },
-          { name: 'crm_platform', value: form.crm.value },
-          { name: 'message',    value: form.message.value.trim() }
+          { name: 'email',   value: form.email.value.trim() },
+          { name: 'message', value: form.message.value.trim() }
         ],
         context: { pageUri: window.location.href, pageName: 'Contact' }
       };
 
       try {
-        // LOCKED CONTENT — NEEDS REVIEW BEFORE LAUNCH
-        // Replace PORTAL_ID and FORM_GUID below with live values before deploy
-        // Portal: 23425883
-        // Form GUID: 55bf8a80-e56e-4f19-9ee7-23bcc9e209de
         const res = await fetch(
           'https://api.hsforms.com/submissions/v3/integration/submit/23425883/55bf8a80-e56e-4f19-9ee7-23bcc9e209de',
           {
@@ -754,7 +819,7 @@
     });
   </script>
 
-  <!-- JSON-LD: ContactPoint nested in Organization -->
+  <!-- JSON-LD: ContactPoint -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -777,5 +842,24 @@
   }
   </script>
 
+
+  <script>
+    // Pre-fill tier dropdown from URL param (?tier=foundation|growth|embedded)
+    (function() {
+      var params = new URLSearchParams(window.location.search);
+      var tier = params.get('tier');
+      if (tier) {
+        var sel = document.getElementById('tier');
+        if (sel) {
+          for (var i = 0; i < sel.options.length; i++) {
+            if (sel.options[i].value === tier) {
+              sel.selectedIndex = i;
+              break;
+            }
+          }
+        }
+      }
+    })();
+  </script>
 </body>
 </html>

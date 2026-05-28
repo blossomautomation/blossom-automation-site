@@ -16,8 +16,10 @@
       --rosemary:  #3D6649;
       --paper:     #FBF9F2;
       --linen:     #F0E8DA;
-      --bloom:     #E5BFB8;
-      --petal:     #F5E8E2;
+      --bloom:     #2C4F94;  /* Sapphire */
+      --bloom-deep: #21407C;
+      --sky:        #9CC7E4;
+      --petal:     #E6EDF8;  /* Sapphire Wash */
       --ink:       #1E2A20;
       --body:      #4A5650;
       --sage:      #7A8A7E;
@@ -59,7 +61,7 @@
     .nav__logo span {
       font-family: 'Newsreader', serif;
       font-style: italic;
-      color: var(--bloom);
+      color: #9CC7E4;
     }
     .nav__links {
       display: flex;
@@ -78,7 +80,7 @@
     }
     .nav__links a.active {
       text-decoration: underline;
-      text-decoration-color: var(--bloom);
+      text-decoration-color: #9CC7E4;
       text-underline-offset: 4px;
       text-decoration-thickness: 2px;
     }
@@ -86,13 +88,13 @@
       font-family: 'Instrument Sans', sans-serif;
       font-size: 13px;
       font-weight: 600;
-      background: var(--bloom);
+      background: var(--paper);
       color: var(--ink);
       padding: 8px 16px;
       border-radius: 6px;
       transition: background 200ms ease;
     }
-    .nav__cta:hover { background: #DCAFA6; }
+    .nav__cta:hover { background: var(--linen); }
     @media (max-width: 599px) {
       .nav-links { display: none; }
     }
@@ -301,6 +303,27 @@
       footer { padding-left: 20px; padding-right: 20px; }
       .footer-top { flex-direction: column; }
     }
+  
+    /* DM Serif Display — weight 400 across all display headings */
+    h1, h2, h3 { font-weight: 400; }
+    h1 em, h2 em, h3 em { font-weight: 400; }
+
+    /* ── DOT GRID ── */
+    .dot-grid {
+      background-image: radial-gradient(circle, rgba(122, 138, 126, 0.35) 1px, transparent 1.4px);
+      background-size: 24px 24px;
+    }
+    .dot-grid.bg-paper { background-color: var(--paper); }
+
+    /* Mobile responsive pass */
+    @media (max-width: 600px) {
+      .container { padding: 0 16px; }
+      section, .section, .what-we-do, .why-we-work, .who-runs-it,
+      .tier-section, .comparison, .faq { padding: 3.5rem 0 !important; }
+      .bottom-cta { padding: 4rem 0 !important; }
+      .d1-card { padding: 1.5rem; }
+    }
+
   </style>
 </head>
 <body>
@@ -329,7 +352,7 @@
   </header>
 
   <!-- PROSE -->
-  <main>
+  <main class="dot-grid bg-paper">
     <div class="prose-wrapper">
 
       <h2>Who we are</h2>

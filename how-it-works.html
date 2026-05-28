@@ -9,14 +9,17 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Serif+Display:ital@0;1&family=Instrument+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
 
   <style>
     /* ─── TOKENS ─────────────────────────────────────────────── */
     :root {
       --forest:      #264F3E;
       --rosemary:    #3D6649;
-      --bloom:       #E5BFB8;
-      --petal:       #F5E8E2;
+      --bloom:     #2C4F94;  /* Sapphire */
+      --bloom-deep: #21407C;
+      --sky:        #9CC7E4;
+      --petal:     #E6EDF8;  /* Sapphire Wash */
       --paper:       #FBF9F2;
       --linen:       #F0E8DA;
       --ink:         #1E2A20;
@@ -29,6 +32,7 @@
 
     /* ─── RESET ──────────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    h1 em, h2 em, h3 em { font-weight: 400; }
     html { scroll-behavior: smooth; }
     body {
       font-family: 'Instrument Sans', sans-serif;
@@ -64,10 +68,12 @@
       font-style: italic;
       color: var(--rosemary);
     }
+    .page-header h1 em { color: #9CC7E4; } /* Forest bg: sky tint */
+
     h2 {
       font-family: 'Newsreader', serif;
       font-size: clamp(28px, 3.4vw, 36px);
-      font-weight: 500;
+      font-weight: 700;
       font-style: normal;
       color: var(--ink);
       line-height: 1.2;
@@ -98,6 +104,12 @@
     }
     .eyebrow--rosemary { color: var(--rosemary); }
     .eyebrow--bloom    { color: var(--bloom); }
+    /* Sky tint override: --bloom is dark Sapphire, fails on Forest/Rosemary */
+    .bottom-cta .eyebrow--bloom,
+    .fallback .eyebrow--bloom,
+    .hero .eyebrow--bloom,
+    .page-header .eyebrow--bloom { color: #9CC7E4; }
+
     strong { color: var(--ink); font-weight: 600; }
 
     /* ─── NAV ────────────────────────────────────────────────── */
@@ -123,7 +135,7 @@
     .nav__logo span {
       font-family: 'Newsreader', serif;
       font-style: italic;
-      color: var(--bloom);
+      color: #9CC7E4;
     }
     .nav__links {
       display: flex;
@@ -142,7 +154,7 @@
     }
     .nav__links a.active {
       text-decoration: underline;
-      text-decoration-color: var(--bloom);
+      text-decoration-color: #9CC7E4;
       text-underline-offset: 4px;
       text-decoration-thickness: 2px;
     }
@@ -150,17 +162,17 @@
       font-family: 'Instrument Sans', sans-serif;
       font-size: 13px;
       font-weight: 600;
-      background: var(--bloom);
+      background: var(--paper);
       color: var(--ink);
       padding: 8px 16px;
       border-radius: 6px;
       transition: background 200ms ease;
     }
-    .nav__cta:hover { background: #DCAFA6; }
+    .nav__cta:hover { background: var(--linen); }
     .nav__links a.active {
       color: var(--linen);
       text-decoration: underline;
-      text-decoration-color: var(--bloom);
+      text-decoration-color: #9CC7E4;
       text-underline-offset: 4px;
       text-decoration-thickness: 2px;
     }
@@ -168,13 +180,13 @@
       font-family: 'Instrument Sans', sans-serif;
       font-size: 13px;
       font-weight: 600;
-      background: var(--bloom);
+      background: var(--paper);
       color: var(--ink);
       padding: 8px 16px;
       border-radius: 6px;
       transition: background 200ms ease;
     }
-    .nav__cta:hover { background: #DCAFA6; }
+    .nav__cta:hover { background: var(--linen); }
 
     /* ─── BUTTONS ────────────────────────────────────────────── */
     .btn {
@@ -188,8 +200,8 @@
       transition: background 200ms ease, border-color 200ms ease, color 200ms ease;
       border: 1px solid transparent;
     }
-    .btn--primary  { background: var(--bloom); color: var(--ink); }
-    .btn--primary:hover { background: #DCAFA6; }
+    .btn--primary  { background: var(--bloom); color: var(--paper); }
+    .btn--primary:hover { background: var(--bloom-deep); }
     .btn--secondary { background: transparent; border-color: var(--rosemary); color: var(--rosemary); }
     .btn--secondary:hover { background: var(--petal); }
     .btn--ghost { background: transparent; border-color: rgba(240,232,218,0.40); color: var(--linen); }
@@ -334,16 +346,7 @@
       grid-template-columns: repeat(5, 1fr);
       gap: 0;
     }
-    .timeline::before {
-      content: '';
-      position: absolute;
-      top: 22px;
-      left: 12.5%;
-      right: 12.5%;
-      height: 1px;
-      background: var(--rule-strong);
-      z-index: 0;
-    }
+
     .timeline-step {
       position: relative;
       z-index: 1;
@@ -374,7 +377,7 @@
       font-size: 16px;
       font-weight: 500;
       color: var(--ink);
-      margin-bottom: 8px;
+      margin-bottom: 6px;
       line-height: 1.3;
     }
     .timeline-step__desc {
@@ -466,7 +469,7 @@
       margin-left: auto;
       margin-right: auto;
     }
-    .bottom-cta h2 em { color: var(--bloom); font-style: italic; }
+    .bottom-cta h2 em { color: #9CC7E4; font-style: italic; }
     .bottom-cta .lede {
       color: rgba(240,232,218,0.82);
       margin-bottom: 36px;
@@ -547,6 +550,187 @@
       .footer__grid { grid-template-columns: 1fr; }
       .framework-panel { padding: 28px 24px; }
     }
+
+    /* ─── CANONICAL FOOTER CSS ───────────────────────────────── */
+    .footer { background: var(--forest); border-top: 1px solid rgba(255,255,255,0.06); padding: 3.5rem 0 2rem; }
+    .footer-top { display: grid; grid-template-columns: 1fr 2fr; gap: 4rem; margin-bottom: 3rem; }
+    @media (max-width: 680px) { .footer-top { grid-template-columns: 1fr; gap: 2rem; } }
+    .footer-logo { font-family: var(--fs); font-size: 0.9375rem; color: var(--linen); display: block; margin-bottom: 0.375rem; text-decoration: none; }
+    .footer-tagline { font-family: var(--fs); font-style: italic; font-size: 0.875rem; color: #7B8F80; }
+    .footer-nav { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+    @media (max-width: 560px) { .footer-nav { grid-template-columns: 1fr 1fr; } }
+    .fcol-title { font-family: var(--fm); font-size: var(--fm-size); letter-spacing: 0.16em; text-transform: uppercase; color: #738979; margin-bottom: 0.75rem; }
+    .footer-nav ul { list-style: none; }
+    .fcol ul { list-style: none; }
+    .footer-nav a, .fcol a { font-family: var(--fb); font-size: 0.875rem; color: #ADBBA8; line-height: 2.1; transition: color 0.15s; text-decoration: none; }
+    .footer-nav a:hover, .fcol a:hover { color: var(--linen); }
+    .footer-meta { border-top: 1px solid rgba(255,255,255,0.06); padding-top: 1.5rem; font-family: var(--fm); font-size: var(--fm-size); letter-spacing: 0.1em; color: #527160; text-transform: uppercase; }
+
+    /* ─── DUMP INLINE CTA ─────────────────────────────────── */
+    .dump-inline-cta {
+      display: inline-block; margin-top: 20px;
+      font-family: 'DM Mono', monospace; font-size: var(--fm-size);
+      font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--rosemary); background: none; border: none;
+      padding: 0; cursor: pointer; text-decoration: none; transition: color 0.15s;
+    }
+    .dump-inline-cta:hover { color: var(--ink); }
+
+    /* ─── ROOTCHECK BRIDGE ────────────────────────────────── */
+    .rc-bridge-section { background: var(--paper); padding: 0 0 72px; }
+    .rc-bridge-body {
+      font-family: 'Newsreader', serif; font-style: italic;
+      font-size: clamp(17px, 1.8vw, 19px); color: var(--body-clr);
+      line-height: 1.7; max-width: 620px; margin-bottom: 14px;
+    }
+    .rc-bridge-steps {
+      font-family: 'DM Mono', monospace; font-size: var(--fm-size);
+      letter-spacing: 0.20em; text-transform: uppercase; color: var(--rosemary);
+    }
+
+    /* ─── ROOTCHECK AUTH MODAL ────────────────────────────── */
+    .rc-modal-overlay {
+      display: none; position: fixed; inset: 0; z-index: 9999;
+      background: rgba(26,42,32,0.88); backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      align-items: center; justify-content: center; padding: 24px;
+    }
+    .rc-modal-overlay.open { display: flex; }
+    .rc-modal-card {
+      background: var(--paper); border-radius: 20px; overflow: hidden;
+      width: 100%; max-width: 460px;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.35), 0 4px 16px rgba(0,0,0,0.15);
+      position: relative; max-height: 90vh; overflow-y: auto;
+    }
+    .rc-modal-close {
+      position: absolute; top: 14px; right: 14px; z-index: 10;
+      background: rgba(255,255,255,0.12); border: none;
+      width: 32px; height: 32px; border-radius: 50%; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(240,232,218,0.80); font-size: 15px;
+      font-family: 'Instrument Sans', sans-serif; transition: background 0.15s;
+    }
+    .rc-modal-close:hover { background: rgba(255,255,255,0.22); }
+    .rc-modal-backdrop {
+      background: var(--forest); padding: 44px 28px 56px; text-align: center;
+    }
+    .rc-modal-eyebrow {
+      font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.18em;
+      text-transform: uppercase; color: rgba(240,232,218,0.45); margin-bottom: 8px;
+    }
+    .rc-modal-headline {
+      font-family: 'DM Serif Display', serif; font-size: 28px;
+      color: var(--linen); line-height: 1.2;
+    }
+    .rc-modal-headline em { font-style: italic; color: #9CC7E4; }
+    .rc-modal-sub {
+      font-family: 'Newsreader', serif; font-style: italic;
+      font-size: 13px; color: rgba(240,232,218,0.55); margin-top: 6px;
+    }
+    .rc-modal-sheet {
+      background: var(--paper); border-radius: 20px 20px 0 0;
+      padding: 0 0 28px; margin-top: -20px; position: relative; z-index: 2;
+    }
+    .rc-modal-handle {
+      width: 36px; height: 4px; background: var(--rule);
+      border-radius: 2px; margin: 14px auto 20px;
+    }
+    .rc-modal-sheet-header {
+      padding: 0 24px 16px; border-bottom: 1px solid var(--rule); margin-bottom: 20px;
+    }
+    .rc-modal-step {
+      font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--sage); margin-bottom: 6px;
+    }
+    .rc-modal-progress { display: flex; gap: 4px; margin-bottom: 12px; }
+    .rc-progress-dot { height: 3px; flex: 1; border-radius: 2px; background: var(--rule); }
+    .rc-progress-dot.active { background: var(--rosemary); }
+    .rc-modal-title {
+      font-family: 'DM Serif Display', serif; font-size: 22px;
+      color: var(--ink); line-height: 1.2;
+    }
+    .rc-modal-title em { font-style: italic; color: var(--rosemary); }
+    .rc-permission-block {
+      margin: 0 24px 16px; background: var(--petal);
+      border-radius: 10px; padding: 14px 16px; border-left: 3px solid var(--bloom);
+    }
+    .rc-permission-label {
+      font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--rosemary); margin-bottom: 10px;
+    }
+    .rc-permission-item {
+      display: flex; align-items: flex-start; gap: 10px; margin-bottom: 8px;
+      font-size: 13px; color: var(--body-clr); line-height: 1.45;
+      font-family: 'Instrument Sans', sans-serif;
+    }
+    .rc-permission-item:last-child { margin-bottom: 0; }
+    .rc-permission-icon { color: var(--rosemary); font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+    .rc-connect-block {
+      margin: 0 24px 20px; border: 1px solid var(--rule); border-radius: 10px; padding: 14px 16px;
+    }
+    .rc-connect-pills { display: flex; gap: 6px; margin-bottom: 10px; }
+    .rc-connect-pill {
+      font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.10em;
+      text-transform: uppercase; background: var(--linen); color: var(--body-clr);
+      padding: 3px 8px; border-radius: 3px;
+    }
+    .rc-connect-title { font-size: 14px; font-weight: 600; color: var(--ink); margin-bottom: 2px; }
+    .rc-connect-sub { font-size: 12px; color: var(--sage); }
+    .rc-btn-primary {
+      display: block; width: calc(100% - 48px); margin: 0 24px 10px;
+      background: var(--bloom); color: var(--paper);
+      font-family: 'Instrument Sans', sans-serif; font-size: 14px; font-weight: 600;
+      padding: 14px 20px; border-radius: 8px; border: none; cursor: pointer;
+      text-align: center; text-decoration: none; transition: background 0.15s;
+    }
+    .rc-btn-primary:hover { background: var(--bloom-deep); }
+    .rc-modal-divider { height: 1px; background: var(--rule); margin: 4px 24px 12px; }
+    .rc-btn-ghost-modal {
+      display: block; text-align: center; margin: 0 24px;
+      font-family: 'Instrument Sans', sans-serif; font-size: 13px;
+      color: var(--sage); text-decoration: underline; text-underline-offset: 3px;
+      text-decoration-color: var(--rule); cursor: pointer;
+      background: none; border: none; width: calc(100% - 48px); padding: 4px 0;
+    }
+    @media (max-width: 599px) {
+      .rc-modal-overlay { align-items: flex-end; padding: 0; }
+      .rc-modal-card { border-radius: 20px 20px 0 0; max-width: 100%; max-height: 92vh; }
+    }
+  
+    /* ── DOT-GRID SURFACE TREATMENT (D1/D3, launch) ── */
+    .dot-grid {
+      background-image: radial-gradient(circle, rgba(122, 138, 126, 0.35) 1px, transparent 1.4px);
+      background-size: 24px 24px;
+    }
+    .dot-grid.bg-paper { background-color: var(--paper); }
+    .dot-grid.bg-linen { background-color: var(--linen); }
+    .section--paper.dot-grid { background-color: var(--paper); }
+    .section--linen.dot-grid { background-color: var(--linen); }
+    /* D1 card: lifts off dot field via shadow + stronger border */
+    .d1-card {
+      background: var(--paper);
+      border: 1px solid #D5CFBE;
+      border-radius: 12px;
+      padding: 2.5rem;
+      box-shadow: 0 1px 2px rgba(30,42,32,0.04), 0 6px 20px rgba(30,42,32,0.06);
+    }
+    .dot-grid.bg-linen .d1-card,
+    .section--linen.dot-grid .d1-card { border-color: var(--border); }
+    @media (max-width: 600px) { .d1-card { padding: 1.5rem; } }
+
+    /* DM Serif Display — weight 400 across all display headings */
+    h1, h2, h3 { font-weight: 400; }
+    h1 em, h2 em, h3 em { font-weight: 400; }
+
+    /* Mobile responsive pass */
+    @media (max-width: 600px) {
+      .container { padding: 0 16px; }
+      section, .section, .what-we-do, .why-we-work, .who-runs-it,
+      .tier-section, .comparison, .faq { padding: 3.5rem 0 !important; }
+      .bottom-cta { padding: 4rem 0 !important; }
+      .d1-card { padding: 1.5rem; }
+    }
+
   </style>
 </head>
 <body>
@@ -562,7 +746,7 @@
           <li><a href="/how-it-works" class="active">How it works</a></li>
           <li><a href="/about">About</a></li>
         </ul>
-        <a href="/contact" class="nav__cta">Book a call</a>
+        <a href="/contact" class="nav__cta">CRM a mess?</a>
       </div>
     </div>
   </nav>
@@ -578,14 +762,14 @@
   </header>
 
   <!-- ═══ §2 · THE FRAMEWORK ════════════════════════════════════ -->
-  <section class="section section--paper">
+  <section class="section section--paper dot-grid">
     <div class="container">
-      <div class="section__header">
+      <div class="d1-card" style="margin-bottom:2rem;"><div class="section__header">
         <p class="eyebrow eyebrow--rosemary">The framework</p>
         <!-- LOCKED CONTENT — NEEDS REVIEW BEFORE LAUNCH -->
         <h2 style="margin-top:12px;">Dump. Sort. <em>Decide.</em></h2>
         <p class="lede">Three words. Enough to run every CRM engagement we've ever done.</p>
-      </div>
+      </div></div><!-- /d1-card -->
 
       <div class="framework-grid">
 
@@ -621,9 +805,9 @@
   </section>
 
   <!-- ═══ §3 · WHAT EACH PHASE LOOKS LIKE IN PRACTICE ══════════ -->
-  <section class="section section--linen">
+  <section class="section section--linen dot-grid">
     <div class="container">
-      <div class="section__header">
+      <div class="d1-card" style="margin-bottom:2rem;"><div class="section__header">
         <p class="eyebrow eyebrow--rosemary">In practice</p>
         <!-- LOCKED CONTENT — NEEDS REVIEW BEFORE LAUNCH -->
         <h2 style="margin-top:12px;">What actually happens <em>in each phase.</em></h2>
@@ -647,6 +831,8 @@
             <!-- LOCKED CONTENT — NEEDS REVIEW BEFORE LAUNCH -->
             <p class="phase-example__text">A sales manager at a 30-person company. Three people have admin access to HubSpot. None of them knows what the other two have built. The Dump phase produces a map of all of it for the first time.</p>
           </div>
+          <!-- Inline RootCheck CTA — triggers auth modal; modal hands off to rootcheck.blossomautomation.com pre-DNS flip -->
+          <button class="dump-inline-cta" onclick="openRootCheckModal()">See if this applies to your CRM →</button>
         </div>
       </div>
 
@@ -694,14 +880,14 @@
   </section>
 
   <!-- ═══ §4 · ENGAGEMENT TIMELINE ══════════════════════════════ -->
-  <section class="section section--paper">
+  <section class="section section--paper dot-grid">
     <div class="container">
-      <div class="section__header">
+      <div class="d1-card" style="margin-bottom:2rem;"><div class="section__header">
         <p class="eyebrow eyebrow--rosemary">The timeline</p>
         <!-- LOCKED CONTENT — NEEDS REVIEW BEFORE LAUNCH -->
         <h2 style="margin-top:12px;">Week by week, <em>what to expect.</em></h2>
         <p class="lede">Foundation Sprint runs four weeks. Here's how they're spent.</p>
-      </div>
+      </div></div><!-- /d1-card -->
 
       <div class="timeline">
 
@@ -750,15 +936,15 @@
       <p style="margin-top:32px; font-family:'Newsreader',serif; font-style:italic; font-size:16px; color:var(--sage);">Growth Retainer and Embedded Partner run the same three phases on a recurring basis. The phases don't change. The timeline does.</p>
 
     </div>
-  </section> ══════════════════════ -->
-  <section class="section section--linen">
+  </section>
+  <section class="section section--linen dot-grid">
     <div class="container">
-      <div class="section__header">
+      <div class="d1-card" style="margin-bottom:2rem;"><div class="section__header">
         <p class="eyebrow eyebrow--rosemary">What you leave with</p>
         <!-- LOCKED CONTENT — NEEDS REVIEW BEFORE LAUNCH -->
         <h2 style="margin-top:12px;">Concrete things. <em>Not vague promises.</em></h2>
         <p class="lede">At the end of a Foundation Sprint, you have four specific deliverables. No dependency on us to use any of them.</p>
-      </div>
+      </div></div><!-- /d1-card -->
 
       <div class="deliverables-grid">
 
@@ -802,11 +988,19 @@
         <p class="pull-quote__text">"He made what could have been a complex process simple, clear, and even enjoyable. For the first time, our team actually understands the system they're working in."</p>
         <div class="pull-quote__attribution">
           <div>
-            <div class="pull-quote__name">Amanda Nielsen</div>
-            <div class="pull-quote__role">Director of Operations, Work Shield</div>
+            <div class="pull-quote__name">Jennifer Pope</div>
+            <div class="pull-quote__role">Co-founder &amp; Executive Leader, Work Shield</div>
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ═══ §6.5 · ROOTCHECK BRIDGE ══════════════════════════════ -->
+  <section class="rc-bridge-section">
+    <div class="container">
+      <p class="rc-bridge-body">RootCheck runs the Dump phase in two minutes. Connect your HubSpot portal and it scores what it finds across data, process, and system use before you've said a word to anyone.</p>
+      <p class="rc-bridge-steps">Connect. Analyze. Discover. Report.</p>
     </div>
   </section>
 
@@ -816,53 +1010,164 @@
       <!-- LOCKED CONTENT — NEEDS REVIEW BEFORE LAUNCH -->
       <span class="eyebrow eyebrow--bloom">See if this applies to you</span>
       <h2>Not sure where your CRM stands?<br><em>Start with a RootCheck.</em></h2>
-      <p class="lede">Free diagnostic. Connects to your HubSpot portal and scores what it finds.</p>
+      <p class="lede">Two minutes to connect your HubSpot. The score tells you what a full Dump would surface.</p>
       <div class="bottom-cta__buttons">
-        <a href="https://rootcheck.blossomautomation.com" class="btn btn--primary">Run a RootCheck</a>
-        <a href="/contact" class="btn btn--ghost">Book a discovery call instead</a>
+        <!-- PRE-FLIP: Modal triggers redirect to rootcheck.blossomautomation.com for OAuth.
+             AT DNS FLIP: Update modal's connect button href to Supabase OAuth on blossomautomation.com. -->
+        <button class="btn btn--primary" onclick="openRootCheckModal()">Run a RootCheck</button>
+        <a href="https://blossomautomation.com/meetings/oscargo/meet-with-oscar-from-blossom" target="_blank" rel="noopener" class="btn btn--ghost">Book a discovery call instead</a>
       </div>
     </div>
   </section>
 
   <!-- ═══ FOOTER ════════════════════════════════════════════════ -->
-  <footer class="footer">
+    <footer class="footer">
     <div class="container">
-      <div class="footer__grid">
+      <div class="footer-top">
         <div>
-          <div class="footer__wordmark">Blossom Automation</div>
-          <div class="footer__tagline">Good systems grow when tended.</div>
+          <a href="index.html" class="footer-logo">blossom automation</a>
+          <p class="footer-tagline">Small CRM consultancy. HubSpot-first.</p>
         </div>
-        <div>
-          <div class="footer__col-head">Services</div>
-          <ul class="footer__links">
-            <li><a href="/services#foundation">Foundation Sprint</a></li>
-            <li><a href="/services#growth">Growth Retainer</a></li>
-            <li><a href="/services#embedded">Embedded Partner</a></li>
-            <li><a href="/for-agencies">For agencies</a></li>
-          </ul>
-        </div>
-        <div>
-          <div class="footer__col-head">Company</div>
-          <ul class="footer__links">
-            <li><a href="/about">About</a></li>
-            <li><a href="/contact">Contact</a></li>
-            <li><a href="/privacy">Privacy</a></li>
-            <li><a href="/terms">Terms</a></li>
-          </ul>
-        </div>
-        <div>
-          <div class="footer__col-head">Tools</div>
-          <ul class="footer__links">
-            <li><a href="https://rootcheck.blossomautomation.com">RootCheck</a></li>
-          </ul>
-        </div>
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <div class="fcol">
+            <h3 class="fcol-title">Services</h3>
+            <ul>
+              <li><a href="/services#tier-foundation-name">Foundation Sprint</a></li>
+              <li><a href="/services#tier-growth-name">Growth Retainer</a></li>
+              <li><a href="/services#tier-embedded-name">Embedded Partner</a></li>
+            </ul>
+          </div>
+          <div class="fcol">
+            <h3 class="fcol-title">Company</h3>
+            <ul>
+              <li><a href="/about">About</a></li>
+              <li><a href="/services">Services</a></li>
+              <li><a href="/how-it-works">How it works</a></li>
+            </ul>
+          </div>
+          <div class="fcol">
+            <h3 class="fcol-title">Tools</h3>
+            <ul>
+              <li><a href="https://rootcheck.blossomautomation.com" rel="noopener noreferrer">RootCheck</a></li>
+            </ul>
+          </div>
+          <div class="fcol">
+            <h3 class="fcol-title">Stay in touch</h3>
+            <ul>
+              <li><a href="https://www.linkedin.com/company/blossom-automation" rel="noopener noreferrer">LinkedIn</a></li>
+              <li><a href="/#newsletter">Quarterly note</a></li>
+              <li><a href="mailto:oscar@blossomautomation.com">oscar@blossomautomation.com</a></li>
+            </ul>
+          </div>
+        </nav>
       </div>
-      <div class="footer__bottom">
-        <span class="footer__copy">© 2026 Blossom Automation</span>
-        <span class="footer__copy">oscar@blossomautomation.com</span>
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+        <p class="footer-meta">&copy; 2026 Blossom Automation</p>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 32" width="36" height="18" fill="none" style="opacity:0.45;">
+            <path d="M4 24 C4 24 8 16 32 16 C56 16 60 24 60 24" stroke="#9CC7E4" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+            <path d="M1 24 L63 24" stroke="#9CC7E4" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M12 24 C12 24 14 10 32 10 C50 10 52 24 52 24" stroke="#9CC7E4" stroke-width="2" stroke-linecap="round" fill="none"/>
+            <path d="M20 10 C20 10 22 6 32 6 C42 6 44 10 44 10" stroke="#9CC7E4" stroke-width="2" stroke-linecap="round" fill="none"/>
+            <ellipse cx="32" cy="6" rx="4" ry="2.5" fill="#9CC7E4" opacity="0.7"/>
+          </svg>
+          <p class="footer-meta" style="margin:0;">Born &amp; bred Austin, TX</p>
+        </div>
       </div>
     </div>
   </footer>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       ROOTCHECK AUTH MODAL — Screen 1 pre-OAuth interstitial
+       ─────────────────────────────────────────────────────────────────
+       PRE-FLIP STATE (current):
+         Connect button → rootcheck.blossomautomation.com (Lovable Supabase OAuth)
+
+       AT DNS FLIP (update these two things):
+         1. Change href on .rc-btn-primary from rootcheck.blossomautomation.com
+            to the Supabase OAuth endpoint on blossomautomation.com.
+         2. Confirm ALLOWED_ORIGINS in sense-making-request edge function includes
+            https://blossomautomation.com (already added May 18, 2026 — verify).
+       ═══════════════════════════════════════════════════════════════ -->
+  <div class="rc-modal-overlay" id="rcModal" role="dialog" aria-modal="true" aria-labelledby="rcModalTitle">
+    <div class="rc-modal-card">
+
+      <button class="rc-modal-close" id="rcModalClose" aria-label="Close">✕</button>
+
+      <div class="rc-modal-backdrop">
+        <div class="rc-modal-eyebrow">HubSpot Clarity Report</div>
+        <div class="rc-modal-headline" id="rcModalTitle">Connect your<br><em>HubSpot portal.</em></div>
+        <div class="rc-modal-sub">Read-only. Two minutes.</div>
+      </div>
+
+      <div class="rc-modal-sheet">
+        <div class="rc-modal-handle"></div>
+
+        <div class="rc-modal-sheet-header">
+          <div class="rc-modal-step">Step 1 of 2</div>
+          <div class="rc-modal-progress">
+            <div class="rc-progress-dot active"></div>
+            <div class="rc-progress-dot"></div>
+          </div>
+          <div class="rc-modal-title">What RootCheck<br><em>reads, and why.</em></div>
+        </div>
+
+        <div class="rc-permission-block">
+          <div class="rc-permission-label">What we access</div>
+          <div class="rc-permission-item">
+            <i class="ti ti-eye rc-permission-icon"></i>
+            <span>Contact and deal records, read-only. We look at completeness and structure, not the content itself.</span>
+          </div>
+          <div class="rc-permission-item">
+            <i class="ti ti-git-branch rc-permission-icon"></i>
+            <span>Workflows and automation. We check whether they're active and correctly scoped.</span>
+          </div>
+          <div class="rc-permission-item">
+            <i class="ti ti-lock rc-permission-icon"></i>
+            <span>No passwords stored. No changes made. You can disconnect anytime from your account settings.</span>
+          </div>
+        </div>
+
+        <div class="rc-connect-block">
+          <div class="rc-connect-pills">
+            <span class="rc-connect-pill">Secure OAuth</span>
+            <span class="rc-connect-pill">Read-only</span>
+          </div>
+          <div class="rc-connect-title">Connect HubSpot to run your audit</div>
+          <div class="rc-connect-sub">Uses HubSpot's official OAuth flow</div>
+        </div>
+
+        <!-- PRE-FLIP URL: update href at DNS flip — see comment block above -->
+        <a href="https://rootcheck.blossomautomation.com" class="rc-btn-primary">
+          <i class="ti ti-brand-hubspot" style="margin-right:6px;font-size:14px;vertical-align:-2px;"></i>Connect HubSpot Account
+        </a>
+
+        <div class="rc-modal-divider"></div>
+        <button class="rc-btn-ghost-modal" onclick="closeRootCheckModal()">Try a sample audit instead →</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openRootCheckModal() {
+      document.getElementById('rcModal').classList.add('open');
+      document.body.style.overflow = 'hidden';
+      setTimeout(function() { document.getElementById('rcModalClose').focus(); }, 50);
+    }
+    function closeRootCheckModal() {
+      document.getElementById('rcModal').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    document.getElementById('rcModal').addEventListener('click', function(e) {
+      if (e.target === this) closeRootCheckModal();
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && document.getElementById('rcModal').classList.contains('open')) {
+        closeRootCheckModal();
+      }
+    });
+    document.getElementById('rcModalClose').addEventListener('click', closeRootCheckModal);
+  </script>
 
 </body>
 </html>

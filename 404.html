@@ -10,14 +10,17 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    h1 em, h2 em, h3 em { font-weight: 400; }
 
     :root {
       --forest:    #264F3E;
       --rosemary:  #3D6649;
       --paper:     #FBF9F2;
       --linen:     #F0E8DA;
-      --bloom:     #E5BFB8;
-      --petal:     #F5E8E2;
+      --bloom:     #2C4F94;  /* Sapphire */
+      --bloom-deep: #21407C;
+      --sky:        #9CC7E4;
+      --petal:     #E6EDF8;  /* Sapphire Wash */
       --ink:       #1E2A20;
       --body:      #4A5650;
       --sage:      #7A8A7E;
@@ -61,7 +64,7 @@
     .nav__logo span {
       font-family: 'Newsreader', serif;
       font-style: italic;
-      color: var(--bloom);
+      color: #9CC7E4;
     }
     .nav__links {
       display: flex;
@@ -80,7 +83,7 @@
     }
     .nav__links a.active {
       text-decoration: underline;
-      text-decoration-color: var(--bloom);
+      text-decoration-color: #9CC7E4;
       text-underline-offset: 4px;
       text-decoration-thickness: 2px;
     }
@@ -88,13 +91,13 @@
       font-family: 'Instrument Sans', sans-serif;
       font-size: 13px;
       font-weight: 600;
-      background: var(--bloom);
+      background: var(--paper);
       color: var(--ink);
       padding: 8px 16px;
       border-radius: 6px;
       transition: background 200ms ease;
     }
-    .nav__cta:hover { background: #DCAFA6; }
+    .nav__cta:hover { background: var(--linen); }
     @media (max-width: 640px) { .nav__links { display: none; } .nav__cta { font-size: 0.75rem; padding: 0.4rem 1rem; } }
 
     /* ── MAIN ERROR BLOCK ── */
@@ -196,8 +199,7 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: var(--bloom);
-      color: var(--ink);
+      background: var(--bloom); color: var(--paper);
       font-family: 'Instrument Sans', sans-serif;
       font-size: 14px;
       font-weight: 600;
@@ -206,7 +208,7 @@
       text-decoration: none;
       transition: background 200ms ease;
     }
-    .error-cta:hover { background: #DCAFA6; }
+    .error-cta:hover { background: var(--bloom-deep); }
 
     /* ── FOOTER ── */
     footer {
@@ -242,6 +244,33 @@
       footer { padding-left: 20px; padding-right: 20px; }
       .footer-inner { flex-direction: column; align-items: flex-start; gap: 8px; }
     }
+
+    /* ─── CANONICAL FOOTER CSS ───────────────────────────────── */
+    .footer { background: var(--forest); border-top: 1px solid rgba(255,255,255,0.06); padding: 3.5rem 0 2rem; }
+    .footer-top { display: grid; grid-template-columns: 1fr 2fr; gap: 4rem; margin-bottom: 3rem; }
+    @media (max-width: 680px) { .footer-top { grid-template-columns: 1fr; gap: 2rem; } }
+    .footer-logo { font-family: var(--fs); font-size: 0.9375rem; color: var(--linen); display: block; margin-bottom: 0.375rem; text-decoration: none; }
+    .footer-tagline { font-family: var(--fs); font-style: italic; font-size: 0.875rem; color: #7B8F80; }
+    .footer-nav { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+    @media (max-width: 560px) { .footer-nav { grid-template-columns: 1fr 1fr; } }
+    .fcol-title { font-family: var(--fm); font-size: var(--fm-size); letter-spacing: 0.16em; text-transform: uppercase; color: #738979; margin-bottom: 0.75rem; }
+    .footer-nav ul { list-style: none; }
+    .fcol ul { list-style: none; }
+    .footer-nav a, .fcol a { font-family: var(--fb); font-size: 0.875rem; color: #ADBBA8; line-height: 2.1; transition: color 0.15s; text-decoration: none; }
+    .footer-nav a:hover, .fcol a:hover { color: var(--linen); }
+    .footer-meta { border-top: 1px solid rgba(255,255,255,0.06); padding-top: 1.5rem; font-family: var(--fm); font-size: var(--fm-size); letter-spacing: 0.1em; color: #527160; text-transform: uppercase; }
+  
+    /* DM Serif Display — weight 400 across all display headings */
+    h1, h2, h3 { font-weight: 400; }
+    h1 em, h2 em, h3 em { font-weight: 400; }
+
+    /* ── DOT GRID ── */
+    .dot-grid {
+      background-image: radial-gradient(circle, rgba(122, 138, 126, 0.35) 1px, transparent 1.4px);
+      background-size: 24px 24px;
+    }
+    .dot-grid.bg-paper { background-color: var(--paper); }
+
   </style>
 </head>
 <body>
@@ -257,13 +286,13 @@
           <li><a href="/how-it-works">How it works</a></li>
           <li><a href="/about">About</a></li>
         </ul>
-        <a href="/contact" class="nav__cta">Book a call</a>
+        <a href="/contact" class="nav__cta">CRM a mess?</a>
       </div>
     </div>
   </nav>
 
   <!-- ERROR BLOCK -->
-  <main>
+  <main class="dot-grid bg-paper">
     <div class="error-block">
       <span class="error-number">404 — Page not found</span>
       <h1>This page<br><em>doesn't exist.</em></h1>
@@ -313,11 +342,58 @@
   </main>
 
   <!-- FOOTER -->
-  <footer>
-    <div class="footer-inner">
-      <span class="footer-wordmark">Blossom Automation</span>
-      <div class="footer-bottom">
-        <p>&copy; 2026 Blossom Automation LLC. Austin, TX.</p>
+    <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <a href="index.html" class="footer-logo">blossom automation</a>
+          <p class="footer-tagline">Small CRM consultancy. HubSpot-first.</p>
+        </div>
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <div class="fcol">
+            <h3 class="fcol-title">Services</h3>
+            <ul>
+              <li><a href="/services#tier-foundation-name">Foundation Sprint</a></li>
+              <li><a href="/services#tier-growth-name">Growth Retainer</a></li>
+              <li><a href="/services#tier-embedded-name">Embedded Partner</a></li>
+            </ul>
+          </div>
+          <div class="fcol">
+            <h3 class="fcol-title">Company</h3>
+            <ul>
+              <li><a href="/about">About</a></li>
+              <li><a href="/services">Services</a></li>
+              <li><a href="/how-it-works">How it works</a></li>
+            </ul>
+          </div>
+          <div class="fcol">
+            <h3 class="fcol-title">Tools</h3>
+            <ul>
+              <li><a href="https://rootcheck.blossomautomation.com" rel="noopener noreferrer">RootCheck</a></li>
+            </ul>
+          </div>
+          <div class="fcol">
+            <h3 class="fcol-title">Stay in touch</h3>
+            <ul>
+              <li><a href="https://www.linkedin.com/company/blossom-automation" rel="noopener noreferrer">LinkedIn</a></li>
+              <li><a href="/#newsletter">Quarterly note</a></li>
+              <li><a href="mailto:oscar@blossomautomation.com">oscar@blossomautomation.com</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+        <p class="footer-meta">&copy; 2026 Blossom Automation</p>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 32" width="36" height="18" fill="none" style="opacity:0.45;">
+            <path d="M4 24 C4 24 8 16 32 16 C56 16 60 24 60 24" stroke="#9CC7E4" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+            <path d="M1 24 L63 24" stroke="#9CC7E4" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M12 24 C12 24 14 10 32 10 C50 10 52 24 52 24" stroke="#9CC7E4" stroke-width="2" stroke-linecap="round" fill="none"/>
+            <path d="M20 10 C20 10 22 6 32 6 C42 6 44 10 44 10" stroke="#9CC7E4" stroke-width="2" stroke-linecap="round" fill="none"/>
+            <ellipse cx="32" cy="6" rx="4" ry="2.5" fill="#9CC7E4" opacity="0.7"/>
+          </svg>
+          <p class="footer-meta" style="margin:0;">Born &amp; bred Austin, TX</p>
+        </div>
       </div>
     </div>
   </footer>
