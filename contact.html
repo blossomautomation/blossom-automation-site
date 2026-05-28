@@ -70,7 +70,7 @@
     .page-header h1 em { color: #9CC7E4; } /* Forest bg: sky tint */
 
     h2 {
-      font-family: 'Newsreader', serif;
+      font-family: 'DM Serif Display', serif;
       font-size: clamp(22px, 2.6vw, 28px);
       font-weight: 500;
       color: var(--ink);
@@ -156,6 +156,71 @@
       transition: background 200ms ease;
     }
     .nav__cta:hover { background: var(--linen); }
+
+    /* ── HAMBURGER ── */
+    .nav__toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 32px;
+      height: 32px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      flex-shrink: 0;
+    }
+    .nav__toggle span {
+      display: block;
+      height: 2px;
+      background: var(--linen);
+      border-radius: 2px;
+      transition: transform 250ms ease, opacity 250ms ease;
+      transform-origin: center;
+    }
+    .nav__toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav__toggle.open span:nth-child(2) { opacity: 0; }
+    .nav__toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .nav__mobile {
+      display: none;
+      background: var(--forest);
+      border-top: 1px solid rgba(240,232,218,0.10);
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 300ms ease;
+    }
+    .nav__mobile.open { max-height: 320px; }
+    .nav__mobile ul { list-style: none; padding: 12px 24px 20px; }
+    .nav__mobile ul li a {
+      display: block;
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: 15px;
+      color: rgba(240,232,218,0.82);
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(240,232,218,0.08);
+      transition: color 200ms ease;
+    }
+    .nav__mobile ul li:last-child a { border-bottom: none; }
+    .nav__mobile ul li a:hover { color: var(--linen); }
+    .nav__mobile ul li a.active {
+      color: var(--linen);
+      text-decoration: underline;
+      text-decoration-color: #9CC7E4;
+      text-underline-offset: 4px;
+    }
+    .nav__mobile-cta {
+      display: block;
+      margin: 4px 24px 20px;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 10px 16px;
+      border-radius: 6px;
+      text-align: center;
+    }
 
     /* ─── BUTTONS ────────────────────────────────────────────── */
     .btn {
@@ -434,7 +499,7 @@
     .fallback__left { flex: 1; }
     .fallback .eyebrow--bloom { margin-bottom: 14px; display: block; }
     .fallback h2 {
-      font-family: 'Newsreader', serif;
+      font-family: 'DM Serif Display', serif;
       font-size: clamp(20px, 2.4vw, 26px);
       font-weight: 500;
       color: var(--paper);
@@ -696,7 +761,7 @@
                 data-src="https://blossomautomation.com/meetings/oscargo/meet-with-oscar-from-blossom?embed=true"
               ></div>
             </div>
-            <p class="calendar-fallback">If the embed doesn't load, <a href="https://blossomautomation.com/meetings/oscargo/meet-with-oscar-from-blossom" target="_blank" rel="noopener">book directly here</a>.</p>
+            <p class="calendar-fallback">If the embed doesn't load, <a href="/contact" target="_blank" rel="noopener">book directly here</a>.</p>
           </div>
         </div>
 
@@ -712,8 +777,8 @@
         <h2>Run a RootCheck <em>first.</em></h2>
         <p>Connects to your HubSpot portal and scores what it finds. Data Trust. Process Integrity. System Utilization. You read the report and decide what's next.</p>
         <div class="rootcheck-strip__btns">
-          <a href="https://rootcheck.blossomautomation.com" class="btn btn--primary" target="_blank" rel="noopener">Begin a RootCheck</a>
-          <a href="https://blossomautomation.com/meetings/oscargo/meet-with-oscar-from-blossom" class="btn btn--ghost-ink" target="_blank" rel="noopener">Book a call after you see the results</a>
+          <a href="/how-it-works" class="btn btn--primary" target="_blank" rel="noopener">Begin a RootCheck</a>
+          
         </div>
       </div>
     </div>
@@ -730,7 +795,7 @@
         </div>
         <div class="fallback__right">
           <a href="mailto:oscar@blossomautomation.com" class="fallback__mailto">oscar@blossomautomation.com</a>
-          <a href="https://rootcheck.blossomautomation.com" class="btn btn--ghost" target="_blank" rel="noopener">Run a RootCheck instead</a>
+          <a href="/how-it-works" class="btn btn--ghost" target="_blank" rel="noopener">Run a RootCheck instead</a>
         </div>
       </div>
     </div>
@@ -765,7 +830,7 @@
         <div>
           <div class="footer__col-head">Tools</div>
           <ul class="footer__links">
-            <li><a href="https://rootcheck.blossomautomation.com">RootCheck</a></li>
+            <li><a href="/how-it-works">RootCheck</a></li>
           </ul>
         </div>
       </div>
@@ -860,6 +925,17 @@
         }
       }
     })();
+  </script>
+  <script>
+    const toggle = document.querySelector('.nav__toggle');
+    const mobile = document.querySelector('.nav__mobile');
+    if (toggle && mobile) {
+      toggle.addEventListener('click', () => {
+        const open = toggle.classList.toggle('open');
+        mobile.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', open);
+      });
+    }
   </script>
 </body>
 </html>

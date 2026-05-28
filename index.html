@@ -113,7 +113,82 @@
       transition: background 200ms ease;
     }
     .nav__cta:hover { background: var(--linen); }
-    @media (max-width: 640px) { .nav__links { display: none; } .nav__cta { font-size: 0.75rem; padding: 0.4rem 1rem; } }
+
+    /* ── HAMBURGER ── */
+    .nav__toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 32px;
+      height: 32px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      flex-shrink: 0;
+    }
+    .nav__toggle span {
+      display: block;
+      height: 2px;
+      background: var(--linen);
+      border-radius: 2px;
+      transition: transform 250ms ease, opacity 250ms ease;
+      transform-origin: center;
+    }
+    .nav__toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav__toggle.open span:nth-child(2) { opacity: 0; }
+    .nav__toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .nav__mobile {
+      display: none;
+      background: var(--forest);
+      border-top: 1px solid rgba(240,232,218,0.10);
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 300ms ease;
+    }
+    .nav__mobile.open { max-height: 320px; }
+    .nav__mobile ul {
+      list-style: none;
+      padding: 12px 24px 20px;
+    }
+    .nav__mobile ul li a {
+      display: block;
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: 15px;
+      color: rgba(240,232,218,0.82);
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(240,232,218,0.08);
+      transition: color 200ms ease;
+    }
+    .nav__mobile ul li:last-child a { border-bottom: none; }
+    .nav__mobile ul li a:hover { color: var(--linen); }
+    .nav__mobile ul li a.active {
+      color: var(--linen);
+      text-decoration: underline;
+      text-decoration-color: #9CC7E4;
+      text-underline-offset: 4px;
+    }
+    .nav__mobile-cta {
+      display: block;
+      margin: 4px 24px 20px;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 10px 16px;
+      border-radius: 6px;
+      text-align: center;
+    }
+
+    @media (max-width: 640px) {
+      .nav__links { display: none; }
+      .nav__cta { display: none; }
+      .nav__toggle { display: flex; }
+      .nav__mobile { display: block; }
+    }
 
     /* HERO */
     .hero { background: var(--forest); padding: 5.5rem 0 5rem; position: relative; overflow: hidden; }
@@ -372,8 +447,20 @@
           <li><a href="/about">About</a></li>
         </ul>
         <a href="/contact" class="nav__cta">CRM a mess?</a>
+        <button class="nav__toggle" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
       </div>
     </div>
+  </nav>
+  <nav class="nav__mobile" aria-label="Mobile navigation">
+    <ul>
+      <li><a href="/" class="active">Home</a></li>
+      <li><a href="/services">Services</a></li>
+      <li><a href="/how-it-works">How it works</a></li>
+      <li><a href="/about">About</a></li>
+    </ul>
+    <a href="/contact" class="nav__mobile-cta">CRM a mess?</a>
   </nav>
 
   <main id="main">
@@ -386,8 +473,8 @@
           <h1 id="hero-h" class="hero__h1" style="font-weight:400;">Your CRM isn't broken.<br><em style="font-weight:400;">Your team just stopped trusting it.</em></h1>
           <p class="hero__lede">The team adapted. The system didn't. That's where we come in.</p>
           <div class="hero__ctas">
-            <a href="https://blossomautomation.com/meetings/oscargo/meet-with-oscar-from-blossom" target="_blank" rel="noopener" class="btn-p" data-cta="book-discovery-call">Tell us what's going on</a>
-            <a href="https://rootcheck.blossomautomation.com" class="btn-gd" rel="noopener noreferrer" data-cta="begin-rootcheck-hero">Score your CRM in two minutes</a>
+            <a href="/contact" target="_blank" rel="noopener" class="btn-p" data-cta="book-discovery-call">Tell us what's going on</a>
+            <a href="/how-it-works" class="btn-gd" rel="noopener noreferrer" data-cta="begin-rootcheck-hero">Score your CRM in two minutes</a>
           </div>
           <div class="hero__attr" aria-hidden="true">
             <span>Consultant-led</span><span class="attr-sep">·</span>
@@ -484,7 +571,7 @@
           </div>
         </div>
         <div class="meth-cta">
-          <a href="https://rootcheck.blossomautomation.com" class="btn-ol" rel="noopener noreferrer" data-cta="methodology-rootcheck">See if this applies to your CRM</a>
+          <a href="/how-it-works" class="btn-ol" rel="noopener noreferrer" data-cta="methodology-rootcheck">See if this applies to your CRM</a>
         </div>
       </div>
     </section>
@@ -498,7 +585,7 @@
             <span class="ew ew--rosemary">Not sure where to start?</span>
             <h2 id="bridge-h" class="bridge-h" style="font-weight:400;">Start with what your <em>CRM is doing today.</em></h2>
             <p class="bridge-body">RootCheck connects to your HubSpot for ten minutes and gives you back a scored report. Data Trust. Process Integrity. System Utilization. You read it. You decide what's next.</p>
-            <a href="https://rootcheck.blossomautomation.com" class="btn-p" rel="noopener noreferrer" data-cta="begin-rootcheck-bridge">Begin a RootCheck</a>
+            <a href="/how-it-works" class="btn-p" rel="noopener noreferrer" data-cta="begin-rootcheck-bridge">Begin a RootCheck</a>
           </div>
           <div class="score-rows" aria-hidden="true">
             <div class="score-row">
@@ -540,7 +627,7 @@
             <p class="card-price">$10,000/month</p>
             <p class="card-terms">Annual commitment.</p>
             <div class="card-actions">
-              <a href="https://blossomautomation.com/meetings/oscargo/meet-with-oscar-from-blossom" target="_blank" rel="noopener" class="btn-cp" data-cta="embedded-primary">See if it's the right fit</a>
+              <a href="/contact" target="_blank" rel="noopener" class="btn-cp" data-cta="embedded-primary">See if it's the right fit</a>
               <a href="/services#tier-embedded-name" class="btn-cs" data-cta="embedded-secondary">Tell me more</a>
             </div>
           </div>
@@ -567,7 +654,7 @@
             <p class="card-price">$5,000 flat</p>
             <p class="card-terms">If you continue with a Growth Retainer or Embedded Partner within 30 days, the Sprint cost is credited against your first month.</p>
             <div class="card-actions">
-              <a href="https://blossomautomation.com/meetings/oscargo/meet-with-oscar-from-blossom" target="_blank" rel="noopener" class="btn-cp" data-cta="foundation-primary">Book the Foundation Sprint</a>
+              <a href="/contact" target="_blank" rel="noopener" class="btn-cp" data-cta="foundation-primary">Book the Foundation Sprint</a>
               <a href="/services#tier-foundation-name" class="btn-cs" data-cta="foundation-secondary">Tell me more</a>
             </div>
           </div>
@@ -660,8 +747,8 @@
         <h2 id="bcta-h" class="bcta-h" style="font-weight:400;">One conversation.<br><em>We'll tell you exactly where to start.</em></h2>
         <p class="bcta-body">No pitch deck. No retainer required up front. We run a RootCheck or a discovery call, tell you what we see, and let you decide what comes next.</p>
         <div class="bcta-btns">
-          <a href="https://blossomautomation.com/meetings/oscargo/meet-with-oscar-from-blossom" target="_blank" rel="noopener" class="btn-p" data-cta="bottom-cta-call">Tell us what's going on</a>
-          <a href="https://rootcheck.blossomautomation.com" class="btn-gd" rel="noopener noreferrer" data-cta="bottom-cta-rootcheck">Score your CRM in two minutes</a>
+          <a href="/contact" target="_blank" rel="noopener" class="btn-p" data-cta="bottom-cta-call">Tell us what's going on</a>
+          <a href="/how-it-works" class="btn-gd" rel="noopener noreferrer" data-cta="bottom-cta-rootcheck">Score your CRM in two minutes</a>
         </div>
       </div>
     </section>
@@ -904,5 +991,14 @@
     })();
   </script>
 
+  <script>
+    const toggle = document.querySelector('.nav__toggle');
+    const mobile = document.querySelector('.nav__mobile');
+    toggle.addEventListener('click', () => {
+      const open = toggle.classList.toggle('open');
+      mobile.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open);
+    });
+  </script>
 </body>
 </html>

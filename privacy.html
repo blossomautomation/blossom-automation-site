@@ -46,6 +46,7 @@
       top: 0;
       z-index: 100;
     }
+    .container { width: 100%; max-width: 1160px; margin: 0 auto; padding: 0 24px; }
     .nav__inner {
       display: flex;
       align-items: center;
@@ -57,27 +58,18 @@
       font-size: 20px;
       color: var(--linen);
       letter-spacing: -0.01em;
+      text-decoration: none;
     }
-    .nav__logo span {
-      font-family: 'Newsreader', serif;
-      font-style: italic;
-      color: #9CC7E4;
-    }
-    .nav__links {
-      display: flex;
-      gap: 32px;
-      list-style: none;
-    }
+    .nav__logo span { font-family: 'Newsreader', serif; font-style: italic; color: #9CC7E4; }
+    .nav__links { display: flex; gap: 32px; list-style: none; }
     .nav__links a {
       font-family: 'Instrument Sans', sans-serif;
       font-size: 14px;
       color: rgba(240,232,218,0.82);
+      text-decoration: none;
       transition: color 200ms ease;
     }
-    .nav__links a:hover,
-    .nav__links a.active {
-      color: var(--linen);
-    }
+    .nav__links a:hover, .nav__links a.active { color: var(--linen); }
     .nav__links a.active {
       text-decoration: underline;
       text-decoration-color: #9CC7E4;
@@ -92,9 +84,50 @@
       color: var(--ink);
       padding: 8px 16px;
       border-radius: 6px;
+      text-decoration: none;
       transition: background 200ms ease;
     }
     .nav__cta:hover { background: var(--linen); }
+    /* ── HAMBURGER ── */
+    .nav__toggle {
+      display: none; flex-direction: column; justify-content: center;
+      gap: 5px; width: 32px; height: 32px; background: none; border: none;
+      cursor: pointer; padding: 4px; flex-shrink: 0;
+    }
+    .nav__toggle span {
+      display: block; height: 2px; background: var(--linen);
+      border-radius: 2px; transition: transform 250ms ease, opacity 250ms ease;
+      transform-origin: center;
+    }
+    .nav__toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav__toggle.open span:nth-child(2) { opacity: 0; }
+    .nav__toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .nav__mobile {
+      display: none; background: var(--forest);
+      border-top: 1px solid rgba(240,232,218,0.10);
+      overflow: hidden; max-height: 0; transition: max-height 300ms ease;
+    }
+    .nav__mobile.open { max-height: 320px; }
+    .nav__mobile ul { list-style: none; padding: 12px 24px 20px; }
+    .nav__mobile ul li a {
+      display: block; font-family: 'Instrument Sans', sans-serif; font-size: 15px;
+      color: rgba(240,232,218,0.82); padding: 10px 0;
+      border-bottom: 1px solid rgba(240,232,218,0.08);
+      text-decoration: none; transition: color 200ms ease;
+    }
+    .nav__mobile ul li:last-child a { border-bottom: none; }
+    .nav__mobile ul li a:hover { color: var(--linen); }
+    .nav__mobile-cta {
+      display: block; margin: 4px 24px 20px; background: var(--paper); color: var(--ink);
+      font-family: 'Instrument Sans', sans-serif; font-size: 14px; font-weight: 600;
+      padding: 10px 16px; border-radius: 6px; text-align: center; text-decoration: none;
+    }
+    @media (max-width: 640px) {
+      .nav__links { display: none; }
+      .nav__cta { display: none; }
+      .nav__toggle { display: flex; }
+      .nav__mobile { display: block; }
+    }
     @media (max-width: 599px) {
       .nav-links { display: none; }
     }
@@ -149,7 +182,7 @@
     }
 
     .prose-wrapper h2 {
-      font-family: 'Newsreader', serif;
+      font-family: 'DM Serif Display', serif;
       font-size: clamp(22px, 2.8vw, 28px);
       font-weight: 500;
       color: var(--ink);
@@ -308,13 +341,6 @@
     h1, h2, h3 { font-weight: 400; }
     h1 em, h2 em, h3 em { font-weight: 400; }
 
-    /* ── DOT GRID ── */
-    .dot-grid {
-      background-image: radial-gradient(circle, rgba(122, 138, 126, 0.35) 1px, transparent 1.4px);
-      background-size: 24px 24px;
-    }
-    .dot-grid.bg-paper { background-color: var(--paper); }
-
     /* Mobile responsive pass */
     @media (max-width: 600px) {
       .container { padding: 0 16px; }
@@ -329,16 +355,31 @@
 <body>
 
   <!-- NAV -->
-  <nav>
-    <div class="nav-inner">
-      <a href="/" class="nav-wordmark">Blossom Automation</a>
-      <ul class="nav-links">
-        <li><a href="/services">Services</a></li>
-        <li><a href="/how-it-works">How it works</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/contact">Contact</a></li>
-      </ul>
+  <nav class="nav">
+    <div class="container">
+      <div class="nav__inner">
+        <a href="/" class="nav__logo">Blossom <span>Automation</span></a>
+        <ul class="nav__links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/services">Services</a></li>
+          <li><a href="/how-it-works">How it works</a></li>
+          <li><a href="/about">About</a></li>
+        </ul>
+        <a href="/contact" class="nav__cta">CRM a mess?</a>
+        <button class="nav__toggle" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
+  </nav>
+  <nav class="nav__mobile" aria-label="Mobile navigation">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/services">Services</a></li>
+      <li><a href="/how-it-works">How it works</a></li>
+      <li><a href="/about">About</a></li>
+    </ul>
+    <a href="/contact" class="nav__mobile-cta">CRM a mess?</a>
   </nav>
 
   <!-- PAGE HEADER -->
@@ -352,7 +393,7 @@
   </header>
 
   <!-- PROSE -->
-  <main class="dot-grid bg-paper">
+  <main>
     <div class="prose-wrapper">
 
       <h2>Who we are</h2>
@@ -479,5 +520,16 @@
     </div>
   </footer>
 
+  <script>
+    const toggle = document.querySelector('.nav__toggle');
+    const mobile = document.querySelector('.nav__mobile');
+    if (toggle && mobile) {
+      toggle.addEventListener('click', () => {
+        const open = toggle.classList.toggle('open');
+        mobile.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', open);
+      });
+    }
+  </script>
 </body>
 </html>
